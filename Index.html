@@ -2,9 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url = Login.aspx" />
     <title>Index</title>
+    <script type="text/javascript">
+        function showText() {
+            document.getElementById("txtExplanation").style.visibility = "visible";
+        }
+
+        function hideText() {
+            document.getElementById("txtExplanation").style.visibility = "hidden";
+        }
+
+        window.onload = function () {
+            hideText();
+            setTimeout('showText()', 3000);
+        }
+    </script>
 </head>
 <body>
-    Index
+    <div id="txtExplanation">
+        <p>You shouldn't be seeing this page. You should have automatically been directed to another page on this website.</p>
+        <p>Please <a href="Login.aspx">click here</a> to go to that page.</p>
+    </div>
 </body>
 </html>
