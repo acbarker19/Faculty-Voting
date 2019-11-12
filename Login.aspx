@@ -15,13 +15,16 @@
         <h3>Login</h3>
 
         <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
-        <br />
+            <br />
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-        <br />
-        <br />
+            <br />
+            <br />
         <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
-        <br />
+            <br />
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+            <br />
+            <br />
+        <asp:Button ID="btnLogin" runat="server" Text="Button" />
     </form>
 </body>
 </html>
