@@ -30,7 +30,7 @@
             <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>
                 <br />
                 <br />
-            <asp:Button ID="btnAddElection" runat="server" Text="Button" />
+            <asp:Button ID="btnAddElection" runat="server" Text="Add Election" />
         </div>
     </form>
 </body>
