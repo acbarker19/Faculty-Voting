@@ -15,15 +15,16 @@
     <form id="form1" runat="server">
         <h3>Welcome, </h3>
         <p>Please log in with your Username and Password:</p>
+        <hr />
 
-        <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
+        <asp:Label ID="lblUsername" runat="server" Text="Username:" Font-Size="Small"></asp:Label>
             <br />
-        <asp:TextBox ID="txtUsername" runat="server" Font-Size="Medium" Height="83px" Width="657px"></asp:TextBox>
+        <asp:TextBox ID="txtUsername" runat="server" Font-Size="Medium"></asp:TextBox>
             <br />
             <br />
-        <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+        <asp:Label ID="lblPassword" runat="server" Text="Password:" Font-Size="Small"></asp:Label>
             <br />
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Font-Size="Medium" Height="73px" Width="654px"></asp:TextBox>
+        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Font-Size="Medium"></asp:TextBox>
             <br />
             <br />
         <asp:Button ID="btnLogin" runat="server" Text="Log In" Font-Size="Small" />
