@@ -13,21 +13,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h3>Welcome, </h3>
+        <h2>Welcome, </h2>
         <p>Please log in with your Username and Password:</p>
         <hr />
-
-        <asp:Label ID="lblUsername" runat="server" Text="Username:" Font-Size="Small"></asp:Label>
-            <br />
-        <asp:TextBox ID="txtUsername" runat="server" Font-Size="Medium"></asp:TextBox>
-            <br />
-            <br />
-        <asp:Label ID="lblPassword" runat="server" Text="Password:" Font-Size="Small"></asp:Label>
-            <br />
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Font-Size="Medium"></asp:TextBox>
-            <br />
-            <br />
-        <asp:Button ID="btnLogin" runat="server" Text="Log In" Font-Size="Small" />
+        <table>
+            <tr>
+                <td><asp:Label ID="lblUsername" runat="server" Text="Username: " ></asp:Label></td>
+                <td><asp:TextBox ID="txtUsername" runat="server" ></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="lblPassword" runat="server" Text="Password: " ></asp:Label></td>
+                <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" ></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td colspan="2"><asp:Button ID="btnLogin" runat="server" Text="Log In" ForeColor="White" Font-Bold="True" BackColor="#990099" BorderStyle="Solid" /></td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
