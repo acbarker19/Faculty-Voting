@@ -16,7 +16,7 @@
         <div>
             <h2>Add/Edit Committees</h2>
             <hr />
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CommitteeID" DataSourceID="sdsCommittees">
+                <asp:GridView ID="gvCommittees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CommitteeID" DataSourceID="sdsCommittees">
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
                         <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" InsertVisible="False" ReadOnly="True" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" />
@@ -52,7 +52,6 @@
                     <asp:Parameter Name="original_TermLength" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <br />
                 <table>
                     <tr>
                         <td><asp:Label ID="lblCommitID" runat="server" Text="Commitee ID:"></asp:Label></td>
