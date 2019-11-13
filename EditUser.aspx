@@ -15,6 +15,7 @@
     <form id="form1" runat="server">
         <div>
             <h2>Edit Users</h2>
+            <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsEditUsers" CellPadding="1">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
