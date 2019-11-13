@@ -13,8 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h2>Edit Users</h2>
+            <h2>Edit/Add Users</h2>
             <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsEditUsers" CellPadding="1">
                 <Columns>
@@ -46,9 +45,8 @@
 <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                 </Columns>
-                <PagerSettings Mode="Numeric" />
             </asp:GridView>
-            <asp:SqlDataSource ID="sdsEditUsers" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" DeleteCommand="DELETE FROM [People] WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote" InsertCommand="INSERT INTO [People] ([Username], [Password], [AccountType], [FirstName], [LastName], [Department], [Title], [CanVote]) VALUES (@Username, @Password, @AccountType, @FirstName, @LastName, @Department, @Title, @CanVote)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [People] ORDER BY [LastName], [FirstName]" UpdateCommand="UPDATE [People] SET [Password] = @Password, [AccountType] = @AccountType, [FirstName] = @FirstName, [LastName] = @LastName, [Department] = @Department, [Title] = @Title, [CanVote] = @CanVote WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote">
+            <asp:SqlDataSource ID="sdsUsers" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" DeleteCommand="DELETE FROM [People] WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote" InsertCommand="INSERT INTO [People] ([Username], [Password], [AccountType], [FirstName], [LastName], [Department], [Title], [CanVote]) VALUES (@Username, @Password, @AccountType, @FirstName, @LastName, @Department, @Title, @CanVote)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [People] ORDER BY [LastName], [FirstName]" UpdateCommand="UPDATE [People] SET [Password] = @Password, [AccountType] = @AccountType, [FirstName] = @FirstName, [LastName] = @LastName, [Department] = @Department, [Title] = @Title, [CanVote] = @CanVote WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote">
                 <DeleteParameters>
                     <asp:Parameter Name="original_Username" Type="String" />
                     <asp:Parameter Name="original_Password" Type="String" />
@@ -87,7 +85,6 @@
                     <asp:Parameter Name="original_CanVote" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <br />
             <table>
                 <tr>
                     <td><asp:Label ID="lblUsername" runat="server" Text="Username: "></asp:Label></td>
@@ -128,35 +125,6 @@
                     <td colspan="2"><asp:Label ID="lblStatus" runat="server" ForeColor="#990099"></asp:Label></td>
                 </tr>
             </table>
-            <br />
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-            <br />
-            
-            
-        </div>
     </form>
 </body>
 </html>
