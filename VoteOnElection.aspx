@@ -1,4 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VoteOnElection.aspx.cs" Inherits="VoteOnElection" %>
+﻿<!--
+    11-12-19 - Alec created page.
+    11-12-19 - Amanda edited design.
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VoteOnElection.aspx.cs" Inherits="VoteOnElection" %>
 
 <!DOCTYPE html>
 
@@ -8,8 +13,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <h2></h2>
+        <hr />
+
     </form>
 </body>
 </html>
