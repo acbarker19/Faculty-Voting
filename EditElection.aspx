@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <h2>Add/Edit Elections</h2>
+        <h2>Add/Edit Elections</h2>
         <hr />
         <asp:GridView ID="gvElections" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ElectionID" DataSourceID="sdsElections">
             <Columns>

@@ -12,7 +12,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h3>User Actions</h3>
+        <h2>User Actions</h2>
+        <hr />
         <ul>
             <li><a href="VoteOnElection.aspx">Vote in an Election</a></li>
             <br />
