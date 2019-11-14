@@ -102,7 +102,7 @@
                     <td><asp:CheckBox ID="cbCanVote" runat="server" BorderColor="#990099" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><asp:Button ID="btnAddUser" runat="server" Text="Add User" BackColor="#990099" Font-Bold="True" ForeColor="White" BorderStyle="Solid" /></td>
+                    <td colspan="2"><asp:Button ID="btnAddUser" runat="server" Text="Add User" BackColor="#990099" Font-Bold="True" ForeColor="White" BorderStyle="Solid" OnClick="btnEditUser"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><asp:Label ID="lblStatus" runat="server" ForeColor="#990099"></asp:Label></td>

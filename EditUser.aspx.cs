@@ -11,4 +11,8 @@ public partial class RegisterUser : System.Web.UI.Page
     {
 
     }
+    public void btnEditUser(object sender, EventArgs e)
+    {
+        Response.Write("test edit user");
+    }
 }
