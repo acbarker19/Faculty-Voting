@@ -1,6 +1,7 @@
 ﻿<!--
     11-12-19 - Jacob created, set up gv and sds, added textboxes/labels for adding.
     11-12-19 - Amanda edited design.
+    11-13-19 - Changed SQL Data Source so info displayed correctly.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="RegisterUser" %>
@@ -15,7 +16,7 @@
     <form id="form1" runat="server">
             <h2>Edit/Add Users</h2>
             <hr />
-            <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsEditUsers" CellPadding="1">
+            <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" ><ControlStyle BorderStyle="None"></ControlStyle><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
