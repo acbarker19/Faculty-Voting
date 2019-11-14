@@ -11,4 +11,9 @@ public partial class EditUser : System.Web.UI.Page
     {
         
     }
+
+    protected void btnAddUser_Click(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+// We added these Namespaces:
+using System.Data;           // for CommandType of a SqlCommand
+using System.Data.SqlClient; // for SqlConnection, SqlCommand, SqlDataReader
+using System.Configuration;  // for ConfigurationManager
 
 public partial class EditCommittee : System.Web.UI.Page
 {
@@ -20,53 +24,82 @@ public partial class EditCommittee : System.Web.UI.Page
         string Name, Description;
         int numRowsAffected;
 
-        //int accountID, numRowsAffected;
-        //decimal balance;
-        //string lastName, firstName;
-
         try
         {
-            //accountID = Convert.ToInt32(txtAccountID.Text);
-            //CommitteeID = Convert.ToInt32(txtCommitID.Text);
             CommitteeSize = Convert.ToInt32(txtCommitSize.Text);
-            TermLength = Convert.ToInt32(txtTermLength.Text);
             try
             {
-                balance = Convert.ToDecimal(txtBalance.Text);
-                if (txtLastName.Text.Length > 0 && txtFirstName.Text.Length > 0)
+                TermLength = Convert.ToInt32(txtTermLength.Text);
+                if (txtCommitName.Text.Length > 0 && txtCommitDesc.Text.Length > 0)
                 {
-                    lastName = txtLastName.Text;
-                    firstName = txtFirstName.Text;
+                    Name = txtCommitName.Text;
+                    Description = txtCommitDesc.Text;
 
-                    numRowsAffected = ws.insertBankAccount(accountID, lastName, firstName, balance);
-                    if (numRowsAffected > 0)
+                    SqlConnection conn = new SqlConnection(getConnectionString());
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO Committee (Name, Description, CommitteeSize, TermLength) "
+                        +"VALUES ('" + Name + "','" + Description + "'," + CommitteeSize + "," + TermLength + ")";
+                    conn.Open();
+
+                    try
                     {
-                        lblStatus.Text = "Bank Account Inserted OK";
-                        txtAccountID.Text = "";
-                        txtLastName.Text = "";
-                        txtFirstName.Text = "";
-                        txtBalance.Text = "";
-                        // Refresh the page to refresh the GridView
-                        Server.Transfer("~/WSBankAccountTester2.aspx");
+                        numRowsAffected = cmd.ExecuteNonQuery();
+                        if (numRowsAffected == 1)
+                        {
+                            lblCommitStatus.Text = "Committee " + Name + ": " + Description + " added.";
+                            txtCommitSize.Text = "";
+                            txtTermLength.Text = "";
+                            txtCommitName.Text = "";
+                            txtCommitDesc.Text = "";
+                            //getAllMajors();
+                            Server.Transfer("~/EditCommittee.aspx");
+                        }
+                        else
+                        {
+                            lblCommitStatus.Text = "Not added.";
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        lblCommitStatus.Text = "There already is a Bank Account with that ID";
+                        lblCommitStatus.Text = "Not added. Committee already exists.";
                     }
+                    conn.Close();
+
+                    //numRowsAffected = ws.insertBankAccount(accountID, lastName, firstName, balance);
+                    //if (numRowsAffected > 0)
+                    //{
+                    //    lblCommitStatus.Text = "Committee added OK.";
+                    //    txtCommitSize.Text = "";
+                    //    txtTermLength.Text = "";
+                    //    txtCommitName.Text = "";
+                    //    txtCommitDesc.Text = "";
+                    //    // Refresh the page to refresh the GridView
+                    //    Server.Transfer("~/EditCommittee.aspx");
+                    //}
+                    //else
+                    //{
+                    //    lblCommitStatus.Text = "There already is a Committee with that ID.";
+                    //}
                 }
                 else
                 {
-                    lblCommitStatus.Text = "Please enter a last name and a first name";
+                    lblCommitStatus.Text = "Please enter a name and a description.";
                 }
             }
             catch (FormatException ex)
             {
-                lblCommitStatus.Text = "Please enter an integer for the ";
+                lblCommitStatus.Text = "Please enter an integer for the Term Length.";
             }
         }
         catch (FormatException ex)
         {
-            lblCommitStatus.Text = "Please enter an integer for Account ID";
+            lblCommitStatus.Text = "Please enter an integer for Committee Size.";
         }
     }
+    private string getConnectionString()
+    {
+        return ConfigurationManager.ConnectionStrings["FacultyVotingConnectionString"].ConnectionString;
+    } 
 }

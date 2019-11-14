@@ -1,6 +1,7 @@
 ﻿<!--
-    11-12-19 - Faith started working on the design view.
+    11-12-19 - Brody started working on the design view.
     11-12-19 - Amanda edited design.
+    11-14-19 - Amanda worked on button functionality.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditCommittee.aspx.cs" Inherits="EditCommittee" %>
