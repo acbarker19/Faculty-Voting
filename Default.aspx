@@ -26,7 +26,7 @@
                 <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" ></asp:TextBox></td>
             </tr>
             <tr>
-                <td colspan="2"><asp:Button ID="btnLogin" runat="server" Text="Log In" ForeColor="White" Font-Bold="True" BackColor="#990099" BorderStyle="Solid" OnClick="testMethod"/></td>
+                <td colspan="2"><asp:Button ID="btnLogin" runat="server" Text="Log In" ForeColor="White" Font-Bold="True" BackColor="#990099" BorderStyle="Solid" OnClick="btnLogin_Click"/></td>
             </tr>
         </table>
     </form>
