@@ -11,4 +11,9 @@ public partial class EditElection : System.Web.UI.Page
     {
 
     }
+
+    protected void btnAddElection_Click(object sender, EventArgs e)
+    {
+
+    }
 }
