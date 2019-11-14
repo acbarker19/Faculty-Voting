@@ -3,6 +3,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+<<<<<<< HEAD
 # Publishing File
 .pubxml
 
@@ -351,3 +352,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+=======
+.vs/FacultyVoting/v16/Server/sqlite3/db.lock
+>>>>>>> parent of c0e0826... Update .gitignore
