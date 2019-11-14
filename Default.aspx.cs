@@ -12,8 +12,8 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    public void testMethod(object sender, EventArgs e)
+    public void btnLogin_Click(object sender, EventArgs e)
     {
-        Response.Write("test");
+        
     }
 }
