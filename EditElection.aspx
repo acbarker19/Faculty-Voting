@@ -55,7 +55,7 @@
                 <td><asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
-                <td colspan="2"><asp:Button ID="btnAddElection" runat="server" Text="Add/Edit Election" ForeColor="White" Font-Bold="True" BorderStyle="Solid" BackColor="#990099" /></td>
+                <td colspan="2"><asp:Button ID="btnAddElection" runat="server" Text="Add Election" ForeColor="White" Font-Bold="True" BorderStyle="Solid" BackColor="#990099" /></td>
             </tr>
             <tr>
                 <td colspan="2"><asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="True" ForeColor="#990099"></asp:Label></td>

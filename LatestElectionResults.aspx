@@ -13,6 +13,7 @@
 <body>
     <form id="form1" runat="server">
         <h3>Latest Election</h3>
+
         <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
