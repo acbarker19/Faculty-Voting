@@ -29,44 +29,7 @@
                     <asp:BoundField DataField="CanVote" HeaderText="CanVote" SortExpression="CanVote" HeaderStyle-ForeColor="#990099" ><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="sdsUsers" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" DeleteCommand="DELETE FROM [People] WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote" InsertCommand="INSERT INTO [People] ([Username], [Password], [AccountType], [FirstName], [LastName], [Department], [Title], [CanVote]) VALUES (@Username, @Password, @AccountType, @FirstName, @LastName, @Department, @Title, @CanVote)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [People] ORDER BY [LastName], [FirstName]" UpdateCommand="UPDATE [People] SET [Password] = @Password, [AccountType] = @AccountType, [FirstName] = @FirstName, [LastName] = @LastName, [Department] = @Department, [Title] = @Title, [CanVote] = @CanVote WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote">
-                <DeleteParameters>
-                    <asp:Parameter Name="original_Username" Type="String" />
-                    <asp:Parameter Name="original_Password" Type="String" />
-                    <asp:Parameter Name="original_AccountType" Type="String" />
-                    <asp:Parameter Name="original_FirstName" Type="String" />
-                    <asp:Parameter Name="original_LastName" Type="String" />
-                    <asp:Parameter Name="original_Department" Type="String" />
-                    <asp:Parameter Name="original_Title" Type="String" />
-                    <asp:Parameter Name="original_CanVote" Type="String" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="Username" Type="String" />
-                    <asp:Parameter Name="Password" Type="String" />
-                    <asp:Parameter Name="AccountType" Type="String" />
-                    <asp:Parameter Name="FirstName" Type="String" />
-                    <asp:Parameter Name="LastName" Type="String" />
-                    <asp:Parameter Name="Department" Type="String" />
-                    <asp:Parameter Name="Title" Type="String" />
-                    <asp:Parameter Name="CanVote" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="Password" Type="String" />
-                    <asp:Parameter Name="AccountType" Type="String" />
-                    <asp:Parameter Name="FirstName" Type="String" />
-                    <asp:Parameter Name="LastName" Type="String" />
-                    <asp:Parameter Name="Department" Type="String" />
-                    <asp:Parameter Name="Title" Type="String" />
-                    <asp:Parameter Name="CanVote" Type="String" />
-                    <asp:Parameter Name="original_Username" Type="String" />
-                    <asp:Parameter Name="original_Password" Type="String" />
-                    <asp:Parameter Name="original_AccountType" Type="String" />
-                    <asp:Parameter Name="original_FirstName" Type="String" />
-                    <asp:Parameter Name="original_LastName" Type="String" />
-                    <asp:Parameter Name="original_Department" Type="String" />
-                    <asp:Parameter Name="original_Title" Type="String" />
-                    <asp:Parameter Name="original_CanVote" Type="String" />
-                </UpdateParameters>
+            <asp:SqlDataSource ID="sdsUsers" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [People]">
             </asp:SqlDataSource>
             <table>
                 <tr>
@@ -102,7 +65,7 @@
                     <td><asp:CheckBox ID="cbCanVote" runat="server" BorderColor="#990099" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><asp:Button ID="btnAddUser" runat="server" Text="Add User" BackColor="#990099" Font-Bold="True" ForeColor="White" BorderStyle="Solid" OnClick="btnAddUser_Click" /></td>
+                    <td colspan="2"><asp:Button ID="btnAddUser" runat="server" Text="Add User" BackColor="#990099" Font-Bold="True" ForeColor="White" BorderStyle="Solid"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><asp:Label ID="lblStatus" runat="server" ForeColor="#990099"></asp:Label></td>
