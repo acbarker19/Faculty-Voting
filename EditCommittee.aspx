@@ -54,8 +54,8 @@
             </asp:SqlDataSource>
                 <table>
                     <tr>
-                        <td><asp:Label ID="lblCommitID" runat="server" Text="Commitee ID:"></asp:Label></td>
-                        <td><asp:TextBox ID="txtCommitID" runat="server"></asp:TextBox></td>
+                        <td><%--<asp:Label ID="lblCommitID" runat="server" Text="Commitee ID:"></asp:Label>--%></td>
+                        <td><%--<asp:TextBox ID="txtCommitID" runat="server"></asp:TextBox>--%></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="lblCommitName" runat="server" Text="Commitee Name:"></asp:Label></td>
@@ -74,10 +74,10 @@
                         <td><asp:TextBox ID="txtTermLength" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><asp:Button ID="btnAddCommit" runat="server" Text="Add Committee" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" /></td>
+                        <td colspan="2"><asp:Button ID="btnAddCommit" runat="server" Text="Add Committee" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnAddCommit_Click"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><asp:Label ID="lblStatus" runat="server" ForeColor="#990099"></asp:Label></td>
+                        <td colspan="2"><asp:Label ID="lblCommitStatus" runat="server" ForeColor="#990099"></asp:Label></td>
                     </tr>
             </table>
         </div>
