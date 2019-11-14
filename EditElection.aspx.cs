@@ -14,6 +14,8 @@ public partial class EditElection : System.Web.UI.Page
 
     protected void btnAddElection_Click(object sender, EventArgs e)
     {
-
+        string ElectionID = txtElectionID.Text;
+        string StartDate = txtStartDate.Text;
+        string EndDate = txtEndDate.Text;
     }
 }

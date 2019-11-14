@@ -11,8 +11,10 @@ public partial class RegisterUser : System.Web.UI.Page
     {
 
     }
-    public void btnEditUser(object sender, EventArgs e)
+    protected void btnAddUser_click(object sender, EventArgs e)
     {
-        Response.Write("test edit user");
+        //NOTE: Checkbox values cbAccountType and cbCanVote needs to be set to String and char.
+
+
     }
 }
