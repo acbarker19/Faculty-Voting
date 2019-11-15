@@ -31,10 +31,6 @@
             </asp:SqlDataSource>
                 <table>
                     <tr>
-                        <td><%--<asp:Label ID="lblCommitID" runat="server" Text="Commitee ID:"></asp:Label>--%></td>
-                        <td><%--<asp:TextBox ID="txtCommitID" runat="server"></asp:TextBox>--%></td>
-                    </tr>
-                    <tr>
                         <td><asp:Label ID="lblCommitName" runat="server" Text="Commitee Name:"></asp:Label></td>
                         <td><asp:TextBox ID="txtCommitName" runat="server"></asp:TextBox></td>
                     </tr>

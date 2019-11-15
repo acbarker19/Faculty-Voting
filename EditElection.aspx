@@ -2,6 +2,7 @@
     11-12-19 - Faith started working on the design view.
     11-12-19 - Amanda edited design.
     11-14-19 - Faith started working on btnAddElection.
+    11-14-19 - Amanda treoubleshooted btnAddElection issues.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditElection.aspx.cs" Inherits="EditElection" %>
@@ -43,10 +44,6 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
         <table>
-            <tr>
-                <td><asp:Label ID="lblElectionID" runat="server" Text="Election ID:"></asp:Label></td>
-                <td><asp:TextBox ID="txtElectionID" runat="server"></asp:TextBox></td>
-            </tr>
             <tr>
                 <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date:"></asp:Label></td>
                 <td><asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox></td>
