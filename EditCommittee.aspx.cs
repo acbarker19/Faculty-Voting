@@ -18,7 +18,6 @@ public partial class EditCommittee : System.Web.UI.Page
 
     protected void btnAddCommit_Click(object sender, EventArgs e)
     {
-        //CommitteeID not needed - AUTO INCREMENTED
         int CommitteeSize, TermLength;
         string Name, Description;
         int numRowsAffected;
@@ -47,12 +46,12 @@ public partial class EditCommittee : System.Web.UI.Page
                         numRowsAffected = cmd.ExecuteNonQuery();
                         if (numRowsAffected == 1)
                         {
-                            lblCommitStatus.Text = "Committee " + Name + ": " + Description + " added.";
                             txtCommitSize.Text = "";
                             txtTermLength.Text = "";
                             txtCommitName.Text = "";
                             txtCommitDesc.Text = "";
                             Server.Transfer("~/EditCommittee.aspx");
+                            lblCommitStatus.Text = "Committee " + Name + ": " + Description + " added.";
                         }
                         else
                         {
@@ -83,5 +82,55 @@ public partial class EditCommittee : System.Web.UI.Page
     private string getConnectionString()
     {
         return ConfigurationManager.ConnectionStrings["FacultyVotingConnectionString"].ConnectionString;
+    }
+    protected void gvCommittees_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            lblCommitStatus.Text = "Unable to save changes." + e.Exception.Message;
+            e.ExceptionHandled = true;
+        }
+        else if (e.AffectedRows == 0)
+        {
+            lblCommitStatus.Text = "Update failed. Someone else changed or deleted this committee.";
+        }
+    }
+
+    protected void gvCommittees_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            lblCommitStatus.Text = "Unable to delete." + e.Exception.Message;
+            e.ExceptionHandled = true;
+        }
+        else if (e.AffectedRows == 0)
+        {
+            lblCommitStatus.Text = "Delete failed. Someone else changed or deleted this committee.";
+        }
+    }
+
+    protected void gvCommittees_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void gvCommittees_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        gvCommittees.SelectedIndex = -1;
+    }
+
+    protected void gvCommittees_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        gvCommittees.SelectedIndex = -1;
+    }
+
+    protected void gvCommittees_PageIndexChanged(object sender, EventArgs e)
+    {
+        gvCommittees.SelectedIndex = -1;
+    }
+
+    protected void gvCommittees_Sorted(object sender, EventArgs e)
+    {
+        gvCommittees.SelectedIndex = -1;
     }
 }

@@ -27,7 +27,31 @@
                         <asp:BoundField DataField="TermLength" HeaderText="TermLength" SortExpression="TermLength" HeaderStyle-ForeColor="#990099" />
                     </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="sdsCommittees" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Committee]">
+            <asp:SqlDataSource ID="sdsCommittees" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Committee]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Committee] WHERE [CommitteeID] = @original_CommitteeID AND [Name] = @original_Name AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([CommitteeSize] = @original_CommitteeSize) OR ([CommitteeSize] IS NULL AND @original_CommitteeSize IS NULL)) AND (([TermLength] = @original_TermLength) OR ([TermLength] IS NULL AND @original_TermLength IS NULL))" InsertCommand="INSERT INTO [Committee] ([Name], [Description], [CommitteeSize], [TermLength]) VALUES (@Name, @Description, @CommitteeSize, @TermLength)" UpdateCommand="UPDATE [Committee] SET [Name] = @Name, [Description] = @Description, [CommitteeSize] = @CommitteeSize, [TermLength] = @TermLength WHERE [CommitteeID] = @original_CommitteeID AND [Name] = @original_Name AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([CommitteeSize] = @original_CommitteeSize) OR ([CommitteeSize] IS NULL AND @original_CommitteeSize IS NULL)) AND (([TermLength] = @original_TermLength) OR ([TermLength] IS NULL AND @original_TermLength IS NULL))">
+                <DeleteParameters>
+                    <asp:Parameter Name="original_CommitteeID" Type="Int32" />
+                    <asp:Parameter Name="original_Name" Type="String" />
+                    <asp:Parameter Name="original_Description" Type="String" />
+                    <asp:Parameter Name="original_CommitteeSize" Type="Int32" />
+                    <asp:Parameter Name="original_TermLength" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Name" Type="String" />
+                    <asp:Parameter Name="Description" Type="String" />
+                    <asp:Parameter Name="CommitteeSize" Type="Int32" />
+                    <asp:Parameter Name="TermLength" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Name" Type="String" />
+                    <asp:Parameter Name="Description" Type="String" />
+                    <asp:Parameter Name="CommitteeSize" Type="Int32" />
+                    <asp:Parameter Name="TermLength" Type="Int32" />
+                    <asp:Parameter Name="original_CommitteeID" Type="Int32" />
+                    <asp:Parameter Name="original_Name" Type="String" />
+                    <asp:Parameter Name="original_Description" Type="String" />
+                    <asp:Parameter Name="original_CommitteeSize" Type="Int32" />
+                    <asp:Parameter Name="original_TermLength" Type="Int32" />
+                </UpdateParameters>
             </asp:SqlDataSource>
                 <table>
                     <tr>
@@ -50,7 +74,7 @@
                         <td colspan="2"><asp:Button ID="btnAddCommit" runat="server" Text="Add Committee" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnAddCommit_Click"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><asp:Label ID="lblCommitStatus" runat="server" ForeColor="#990099"></asp:Label></td>
+                        <td colspan="2"><asp:Label ID="lblCommitStatus" runat="server" ForeColor="#990099" EnableViewState="false"></asp:Label></td>
                     </tr>
             </table>
         </div>
