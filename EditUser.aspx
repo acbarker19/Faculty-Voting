@@ -35,7 +35,7 @@
             <table>
                 <tr>
                     <td><asp:Label ID="lblUsername" runat="server" Text="Username: "></asp:Label></td>
-                    <td><asp:TextBox ID="txtUser" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtUsername" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:Label ID="lblPassword" runat="server" Text="Password: "></asp:Label></td>

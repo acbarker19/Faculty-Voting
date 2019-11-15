@@ -18,73 +18,75 @@ public partial class EditUser : System.Web.UI.Page
 
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
-        //Username, 
- //       Password, 
-	//AccountType, 
-	//FirstName, 
-	//LastName, 
-	//Department, 
-	//Title, 
-	//CanVote
-        int CommitteeSize, TermLength;
-        string Name, Description;
-        int numRowsAffected;
+        //not sure how to retrieve from the checkboxes
 
+        string username, password, fName, lName, department, title;
+        string accountType, canVote;
+
+        int numRowsAffected;
         try
         {
-            CommitteeSize = Convert.ToInt32(txtCommitSize.Text);
-            try
+            if (txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0 &&
+                txtFirstName.Text.Length > 0 && txtLastName.Text.Length > 0 &&
+                txtDepartment.Text.Length > 0 && txtTitle.Text.Length > 0)
             {
-                TermLength = Convert.ToInt32(txtTermLength.Text);
-                if (txtCommitName.Text.Length > 0 && txtCommitDesc.Text.Length > 0)
-                {
-                    Name = txtCommitName.Text;
-                    Description = txtCommitDesc.Text;
+                username = txtUsername.Text;
+                password = txtPassword.Text;
+                fName = txtFirstName.Text;
+                lName = txtLastName.Text;
+                department = txtDepartment.Text;
+                title = txtTitle.Text;
 
-                    SqlConnection conn = new SqlConnection(getConnectionString());
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO Committee (Name, Description, CommitteeSize, TermLength) "
-                        + "VALUES ('" + Name + "','" + Description + "'," + CommitteeSize + "," + TermLength + ")";
-                    conn.Open();
+                //check if the checkboxes are checked and save that:
+                //don't know how to do that
+                accountType = "";
+                canVote = "";
 
-                    try
-                    {
-                        numRowsAffected = cmd.ExecuteNonQuery();
-                        if (numRowsAffected == 1)
-                        {
-                            lblCommitStatus.Text = "Committee " + Name + ": " + Description + " added.";
-                            txtCommitSize.Text = "";
-                            txtTermLength.Text = "";
-                            txtCommitName.Text = "";
-                            txtCommitDesc.Text = "";
-                            Server.Transfer("~/EditCommittee.aspx");
-                        }
-                        else
-                        {
-                            lblUserStatus.Text = "Not added.";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        lblUserStatus.Text = "Not added. Committee already exists.";
-                    }
-                    conn.Close();
-                }
-                else
+                SqlConnection conn = new SqlConnection(getConnectionString());
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO People (Username, Password, FirstName, LastName, "+
+                    "Department, Title, AccountType, CanVote) "
+                    + "VALUES ('" + username + "','" + password + "'," + fName + ",'" + lName + "','" 
+                    + department + "','" + title + "','" + accountType + "','" + canVote + "')";
+                conn.Open();
+
+                try
                 {
-                    lblUserStatus.Text = "Please enter a name and a description.";
+                    numRowsAffected = cmd.ExecuteNonQuery();
+                    if (numRowsAffected == 1)
+                    {
+                        lblUserStatus.Text = "User " + fName + " " + lName + " added.";
+                        txtUsername.Text = "";
+                        txtPassword.Text = "";
+                        txtFirstName.Text = "";
+                        txtLastName.Text = "";
+                        txtDepartment.Text = "";
+                        txtTitle.Text = "";
+                        //reset checkboxes:
+                        //don't know how to do this
+                        Server.Transfer("~/EditUser.aspx");
+                    }
+                    else
+                    {
+                        lblUserStatus.Text = "Not added.";
+                    }
                 }
+                catch (Exception ex)
+                {
+                    lblUserStatus.Text = "Not added. User already exists.";
+                }
+                conn.Close();
             }
-            catch (FormatException ex)
+            else
             {
-                lblUserStatus.Text = "Please enter an integer for the Term Length.";
+                lblUserStatus.Text = "Please make sure you have entered information in all the textboxes.";
             }
         }
         catch (FormatException ex)
         {
-            lblUserStatus.Text = "Please enter an integer for Committee Size.";
+            lblUserStatus.Text = "Error. User not added.";
         }
     }
     private string getConnectionString()
