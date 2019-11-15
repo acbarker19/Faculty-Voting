@@ -18,8 +18,6 @@ public partial class EditUser : System.Web.UI.Page
 
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
-        //not sure how to retrieve from the checkboxes
-
         string username, password, fName, lName, department, title;
         string accountType, canVote;
 
@@ -36,11 +34,25 @@ public partial class EditUser : System.Web.UI.Page
                 lName = txtLastName.Text;
                 department = txtDepartment.Text;
                 title = txtTitle.Text;
+                //these need tested - could not add user because "User was already added"
+                //Code from https://stackoverflow.com/questions/14713782/how-to-show-console-writeline-output-in-my-browser-console-or-output-window
+                if (cbCanVote.Checked == true)
+                {
+                    canVote = "y"; 
 
-                //check if the checkboxes are checked and save that:
-                //don't know how to do that
-                accountType = "";
-                canVote = "";
+                }
+                else
+                {
+                    canVote = "n";
+                }
+                if (cbAccountType.Checked == true)
+                {
+                    accountType = "admin";
+                }
+                else
+                {
+                    accountType = "user";
+                }
 
                 SqlConnection conn = new SqlConnection(getConnectionString());
                 SqlCommand cmd = new SqlCommand();
@@ -64,6 +76,8 @@ public partial class EditUser : System.Web.UI.Page
                         txtLastName.Text = "";
                         txtDepartment.Text = "";
                         txtTitle.Text = "";
+                        cbAccountType.Checked = false; //79-80 cannot be checked as I could not successfully add a new user
+                        cbCanVote.Checked = false;
                         //reset checkboxes:
                         //don't know how to do this
                         Server.Transfer("~/EditUser.aspx");
@@ -88,9 +102,10 @@ public partial class EditUser : System.Web.UI.Page
         {
             lblUserStatus.Text = "Error. User not added.";
         }
+
     }
     private string getConnectionString()
     {
         return ConfigurationManager.ConnectionStrings["FacultyVotingConnectionString"].ConnectionString;
     }
-}
+}   
