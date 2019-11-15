@@ -18,8 +18,7 @@ public partial class EditCommittee : System.Web.UI.Page
 
     protected void btnAddCommit_Click(object sender, EventArgs e)
     {
-        //CommitteeID int, Name string, Description string, CommitteeSize int, TermLength int
-        //int CommitteeID; NOT NEEDED - AUTO GENERATED
+        //CommitteeID not needed - AUTO INCREMENTED
         int CommitteeSize, TermLength;
         string Name, Description;
         int numRowsAffected;
@@ -53,7 +52,6 @@ public partial class EditCommittee : System.Web.UI.Page
                             txtTermLength.Text = "";
                             txtCommitName.Text = "";
                             txtCommitDesc.Text = "";
-                            //getAllMajors();
                             Server.Transfer("~/EditCommittee.aspx");
                         }
                         else
@@ -66,22 +64,6 @@ public partial class EditCommittee : System.Web.UI.Page
                         lblCommitStatus.Text = "Not added. Committee already exists.";
                     }
                     conn.Close();
-
-                    //numRowsAffected = ws.insertBankAccount(accountID, lastName, firstName, balance);
-                    //if (numRowsAffected > 0)
-                    //{
-                    //    lblCommitStatus.Text = "Committee added OK.";
-                    //    txtCommitSize.Text = "";
-                    //    txtTermLength.Text = "";
-                    //    txtCommitName.Text = "";
-                    //    txtCommitDesc.Text = "";
-                    //    // Refresh the page to refresh the GridView
-                    //    Server.Transfer("~/EditCommittee.aspx");
-                    //}
-                    //else
-                    //{
-                    //    lblCommitStatus.Text = "There already is a Committee with that ID.";
-                    //}
                 }
                 else
                 {
