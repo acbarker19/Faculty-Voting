@@ -29,7 +29,10 @@
                 <td colspan="2"><asp:Button ID="btnLogin" runat="server" Text="Log In" ForeColor="White" Font-Bold="True" BackColor="#990099" BorderStyle="Solid" OnClick="btnLogin_Click"/></td>
             </tr>
         </table>
-        <a href="AdminLanding.aspx">Link</a>
+        <br />
+        <asp:Label ID="lblStatus" runat="server" ForeColor="Red"></asp:Label>
+        <br /><br />
+        <a href="AdminLanding.aspx">Link to Other Pages</a>
     </form>
 </body>
 </html>
