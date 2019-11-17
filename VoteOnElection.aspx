@@ -18,7 +18,8 @@
         <hr />
         <br />
         <asp:Label ID="lblElectionPicker" runat="server" Text="Select a election to vote on by ID: "></asp:Label>
-        <asp:DropDownList ID="ddlPickElection" runat="server" DataTextField="ElectionID" DataValueField="ElectionID" AutoPostBack="true" Height="16px"></asp:DropDownList>
+        <asp:DropDownList ID="ddlPickElection" runat="server" DataTextField="ElectionID" DataValueField="ElectionID" AutoPostBack="True" Height="16px"></asp:DropDownList>
+        <asp:SqlDataSource ID="sdsPickElection" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT [ElectionID] FROM [FacultyRunning] ORDER BY [ElectionID]"></asp:SqlDataSource>
         <br />
         <br />
         <asp:GridView ID="gvElectionVoting" runat="server" AutoGenerateColumns="False" DataKeyNames="Username,ElectionID" DataSourceID="sdsElectionFaculty">
@@ -28,7 +29,7 @@
                 <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" SortExpression="CommitteeID" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="sdsElectionFaculty" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT [Username], [ElectionID], [CommitteeID] FROM [FacultyRunning] WHERE ([ElectionID] = @ElectionID) ORDER BY [ElectionID] DESC, [Username] DESC">
+        <asp:SqlDataSource ID="sdsElectionFaculty" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT [Username], [ElectionID], [CommitteeID] FROM [FacultyRunning] WHERE ([ElectionID] = @ElectionID) ORDER BY [ElectionID], [Username]">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlPickElection" DefaultValue="%" Name="ElectionID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
