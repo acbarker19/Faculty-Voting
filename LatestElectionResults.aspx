@@ -1,5 +1,6 @@
 ﻿<!--
     11-13-19 - Alec created the page and added labels.
+    11-17-19 - Amanda edited design to match other pages.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="LatestElectionResults.aspx.cs" Inherits="LatestElectionResults" %>
@@ -14,6 +15,8 @@
     <form id="form1" runat="server">
         <h2>Latest Election</h2>
         <hr />
+
+        <br />
         <asp:Label ID="lblInfo" runat="server" Text="" ForeColor="#990099" Font-Bold="True"></asp:Label>
     </form>
 </body>

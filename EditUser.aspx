@@ -1,10 +1,9 @@
 ﻿<!--
     11-12-19 - Jacob created, set up gv and sds, added textboxes/labels for adding.
     11-12-19 - Amanda edited design.
-    11-13-19 - Who?? Changed SQL Data Source so info displayed correctly.
-    11-14-19 - Amanda worked on btn functionality
-    11-15-19 - Jacob attempted to fix checkboxes
-    11-17-19 - Amanda worked on functionality
+    11-14-19 - Amanda worked on btn functionality.
+    11-15-19 - Jacob attempted to fix checkboxes - failed.
+    11-17-19 - Amanda worked on functionality and edited design to match other pages.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
@@ -78,6 +77,7 @@
                     <asp:Parameter Name="original_CanVote" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+            <br />
             <table>
                 <tr>
                     <td><asp:Label ID="lblUsername" runat="server" Text="Username: "></asp:Label></td>

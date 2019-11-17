@@ -1,5 +1,6 @@
 ﻿<!--
     11-13-19 - Alec updated links.
+    11-14-19 - Amanda edited design to match other pages.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserLanding.aspx.cs" Inherits="UserLanding" %>
@@ -16,7 +17,6 @@
         <hr />
         <ul>
             <li><a href="VoteOnElection.aspx">Vote in an Election</a></li>
-            <br />
             <li><a href="LatestElectionResults.aspx">View the Latest Election Results</a></li>
             <li><a href="CurrentCommittees.aspx">View Current Committees</a></li>
         </ul>

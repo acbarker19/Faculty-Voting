@@ -4,6 +4,7 @@
     11-14-19 - Faith started working on btnAddElection.
     11-14-19 - Amanda treoubleshooted btnAddElection issues.
     11-15-19 - Faith continued working on btnAddElection.
+    11-17-19 - Amanda edited design to match other pages.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditElection.aspx.cs" Inherits="EditElection" %>
@@ -44,6 +45,7 @@
                     <asp:Parameter DbType="Date" Name="original_EndDate" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+        <br />
         <table>
             <tr>
                 <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date:"></asp:Label></td>
