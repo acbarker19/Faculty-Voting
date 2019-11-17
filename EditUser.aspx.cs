@@ -21,9 +21,6 @@ public partial class EditUser : System.Web.UI.Page
         string username, password, fName, lName, department, title, accountType;
         char canVote;
 
-        Response.Write("can vote checkbox is: " + cbCanVote.Checked);
-        Response.Write("admin permissions checkbox is: " + cbAccountType.Checked);
-
         int numRowsAffected;
         try
         {
@@ -79,10 +76,8 @@ public partial class EditUser : System.Web.UI.Page
                         txtLastName.Text = "";
                         txtDepartment.Text = "";
                         txtTitle.Text = "";
-                        cbAccountType.Checked = false; //79-80 cannot be checked as I could not successfully add a new user
+                        cbAccountType.Checked = false; 
                         cbCanVote.Checked = false;
-                        //reset checkboxes:
-                        //don't know how to do this
                         Server.Transfer("~/EditUser.aspx");
                     }
                     else
