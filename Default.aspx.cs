@@ -17,13 +17,13 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    private static string getConnectionString()
+    private string getConnectionString()
     {
         return ConfigurationManager.ConnectionStrings["FacultyVotingConnectionString"].ConnectionString;
     }
 
     [DataObjectMethod(DataObjectMethodType.Select)]
-    public static DataSet getPeople()
+    public DataSet getPeople()
     {
         SqlDataAdapter dad = new SqlDataAdapter("SELECT * FROM People", getConnectionString());
         DataSet ds = new DataSet();
@@ -39,14 +39,14 @@ public partial class _Default : System.Web.UI.Page
         Boolean loginAllowed = false;
         String accountType = null;
 
-        for (int col = 0; col < ds.Tables[0].Rows.Count; col++)
+        for (int row = 0; row < ds.Tables[0].Rows.Count; row++)
         {
             //Checks if username exists (not case sensitive) and if it matches the password (case sensitive)
-            if (String.Equals(ds.Tables[0].Rows[col]["Username"].ToString(), txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)
-                && ds.Tables[0].Rows[col]["Password"].ToString() == txtPassword.Text)
+            if (String.Equals(ds.Tables[0].Rows[row]["Username"].ToString(), txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)
+                && ds.Tables[0].Rows[row]["Password"].ToString() == txtPassword.Text)
             {
                 loginAllowed = true;
-                accountType = ds.Tables[0].Rows[col]["AccountType"].ToString();
+                accountType = ds.Tables[0].Rows[row]["AccountType"].ToString();
                 break;
             }
         }
