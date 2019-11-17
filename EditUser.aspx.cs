@@ -16,93 +16,75 @@ public partial class EditUser : System.Web.UI.Page
 
     }
 
-    protected void gvUsers_RowDeleted(object sender, GridViewDeletedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            lblUserStatus.Text = "Unable to delete.";
-            e.ExceptionHandled = true;
-        }
-        else
-        {
-            if (e.AffectedRows == 0)
-            {
-                lblUserStatus.Text = "Delete failed. Someone else already deleted this user.";
-            }
-            else
-            {
-                lblUserStatus.Text = "Deleted OK";
-            }
-        }
-    }
+    //protected void gvUsers_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    //{
+    //    if (e.Exception != null)
+    //    {
+    //        lblUserStatus.Text = "Unable to delete.";
+    //        e.ExceptionHandled = true;
+    //    }
+    //    else
+    //    {
+    //        if (e.AffectedRows == 0)
+    //        {
+    //            lblUserStatus.Text = "Delete failed. Someone else already deleted this user.";
+    //        }
+    //        else
+    //        {
+    //            lblUserStatus.Text = "Deleted OK";
+    //        }
+    //    }
+    //}
 
-    protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        string committeeID, committeeName;
+    //protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
+    //{
+    //    string username, password;
 
-        if (e.CommandName == "DeleteAsk")
-        {
-            GridViewRow gvr = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
-            int rowIndex = gvr.RowIndex;
-            committeeID = gvUsers.Rows[rowIndex].Cells[1].Text;
-            committeeName = gvUsers.Rows[rowIndex].Cells[2].Text;
+    //    if (e.CommandName == "DeleteAsk")
+    //    {
+    //        GridViewRow gvr = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+    //        int rowIndex = gvr.RowIndex;
+    //        username = gvUsers.Rows[rowIndex].Cells[1].Text;
+    //        password = gvUsers.Rows[rowIndex].Cells[2].Text;
 
-            Response.Write("You chose to delete " + committeeID + ": " + committeeName);
+    //        Response.Write("You chose to delete " + username + ": " + password);
 
-            Session["DeleteCommitteeID"] = committeeID;
-            Session["DeleteCommitteeName"] = committeeName;
-            lblUserStatus.Text = "Confirm delete for " + committeeID + ": " + committeeName + "?";
-            e.Handled = true;
+    //        e.Handled = true;
 
-        }
+    //    }
 
-        
+    //    int numRowsAffected;
+    //    SqlConnection conn;
+    //    SqlCommand cmd;
 
-        
+    //    conn = new SqlConnection(getConnectionString());
+    //    conn.Open();
 
+    //    cmd = new SqlCommand();
+    //    cmd.Connection = conn;
+    //    cmd.CommandType = CommandType.Text;
+    //    cmd.CommandText = "DELETE FROM People WHERE Username = '" + username + "'";
 
-        //majorCode = (string)Session["DeleteMajorCode"];
-        //majorDescription = (string)Session["DeleteMajorDescription"];
+    //    try
+    //    {
+    //        numRowsAffected = cmd.ExecuteNonQuery();
+    //        if (numRowsAffected == 1)
+    //        {
+    //            lblUserStatus.Text = username + ": " + password + " deleted.";
+    //            gvUsers.DataBind();
+    //        }
+    //        else
+    //        {
+    //            lblUserStatus.Text = "Not deleted. Someone else already deleted it.";
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        lblUserStatus.Text = "Not deleted.";
+    //    }
 
-
-
-        //Response.Write("You are deleting " + majorCode + ": " + majorDescription);
-        //int numRowsAffected;
-        //SqlConnection conn;
-        //SqlCommand cmd;
-
-        //conn = new SqlConnection(getConnectionString());
-        //conn.Open();
-
-        //cmd = new SqlCommand();
-        //cmd.Connection = conn;
-        //cmd.CommandType = CommandType.Text;
-        //cmd.CommandText = "DELETE FROM Major WHERE MajorCode = '" + majorCode + "'";
-
-        //try
-        //{
-        //    numRowsAffected = cmd.ExecuteNonQuery();
-        //    if (numRowsAffected == 1)
-        //    {
-        //        lblStatus.Text = majorCode + ": " + majorDescription + " deleted.";
-        //        gvMajors.DataBind();
-        //    }
-        //    else
-        //    {
-        //        lblStatus.Text = "Not deleted. Someone els already deleted it.";
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    lblStatus.Text = "Not delted. You many not delete " + majorCode + ": " + majorDescription
-        //        + " because some students have that major.";
-        //}
-
-
-
-        //conn.Close();
-
-    }
+    //    conn.Close();
+    //}
 
     protected void btnAddUser_Click(object sender, EventArgs e)
     {

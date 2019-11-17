@@ -21,13 +21,13 @@
             <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
-                    <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+                    <asp:CommandField ShowDeleteButton="true" ShowEditButton="True" ButtonType="Button" />
 
-                    <asp:TemplateField ShowHeader="False">
+                    <%--<asp:TemplateField ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:Button ID="btnDeleteAsk" runat="server" CausesValidation="False" CommandName="DeleteAsk" Text="Delete" />
                                 </ItemTemplate>
-                            </asp:TemplateField>
+                            </asp:TemplateField>--%>
 
                     <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" ><ControlStyle BorderStyle="None"></ControlStyle><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" HeaderStyle-ForeColor="#990099" ><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
