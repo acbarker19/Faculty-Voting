@@ -12,9 +12,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h3>Latest Election</h3>
-
-        <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>
+        <h2>Latest Election</h2>
+        <hr />
+        <asp:Label ID="lblInfo" runat="server" Text="" ForeColor="#990099" Font-Bold="True"></asp:Label>
     </form>
 </body>
 </html>
