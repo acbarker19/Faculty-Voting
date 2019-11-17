@@ -108,29 +108,4 @@ public partial class EditCommittee : System.Web.UI.Page
             lblCommitStatus.Text = "Delete failed. Someone else changed or deleted this committee.";
         }
     }
-
-    protected void gvCommittees_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void gvCommittees_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        gvCommittees.SelectedIndex = -1;
-    }
-
-    protected void gvCommittees_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        gvCommittees.SelectedIndex = -1;
-    }
-
-    protected void gvCommittees_PageIndexChanged(object sender, EventArgs e)
-    {
-        gvCommittees.SelectedIndex = -1;
-    }
-
-    protected void gvCommittees_Sorted(object sender, EventArgs e)
-    {
-        gvCommittees.SelectedIndex = -1;
-    }
 }

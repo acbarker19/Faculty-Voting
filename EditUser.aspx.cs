@@ -18,8 +18,8 @@ public partial class EditUser : System.Web.UI.Page
 
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
-        string username, password, fName, lName, department, title;
-        string accountType, canVote;
+        string username, password, fName, lName, department, title, accountType;
+        char canVote;
 
         int numRowsAffected;
         try
@@ -34,17 +34,17 @@ public partial class EditUser : System.Web.UI.Page
                 lName = txtLastName.Text;
                 department = txtDepartment.Text;
                 title = txtTitle.Text;
-                //these need tested - could not add user because "User was already added"
-                //Code from https://stackoverflow.com/questions/14713782/how-to-show-console-writeline-output-in-my-browser-console-or-output-window
+                
                 if (cbCanVote.Checked == true)
                 {
-                    canVote = "y"; 
+                    canVote = 'y'; 
 
                 }
                 else
                 {
-                    canVote = "n";
+                    canVote = 'n';
                 }
+
                 if (cbAccountType.Checked == true)
                 {
                     accountType = "admin";
@@ -60,7 +60,7 @@ public partial class EditUser : System.Web.UI.Page
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO People (Username, Password, FirstName, LastName, "+
                     "Department, Title, AccountType, CanVote) "
-                    + "VALUES ('" + username + "','" + password + "'," + fName + ",'" + lName + "','" 
+                    + "VALUES ('" + username + "','" + password + "','" + fName + "','" + lName + "','" 
                     + department + "','" + title + "','" + accountType + "','" + canVote + "')";
                 conn.Open();
 
@@ -76,10 +76,8 @@ public partial class EditUser : System.Web.UI.Page
                         txtLastName.Text = "";
                         txtDepartment.Text = "";
                         txtTitle.Text = "";
-                        cbAccountType.Checked = false; //79-80 cannot be checked as I could not successfully add a new user
+                        cbAccountType.Checked = false; 
                         cbCanVote.Checked = false;
-                        //reset checkboxes:
-                        //don't know how to do this
                         Server.Transfer("~/EditUser.aspx");
                     }
                     else
