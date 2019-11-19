@@ -4,6 +4,7 @@
     11-14-19 - Amanda worked on btn functionality.
     11-15-19 - Jacob attempted to fix checkboxes - failed.
     11-17-19 - Amanda worked on functionality and edited design to match other pages.
+    11-19-19 - Amanda added functionality for the Active variable in People table.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
@@ -21,13 +22,6 @@
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="true" ShowEditButton="True" ButtonType="Button" />
-
-                    <%--<asp:TemplateField ShowHeader="False">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnDeleteAsk" runat="server" CausesValidation="False" CommandName="DeleteAsk" Text="Delete" />
-                                </ItemTemplate>
-                            </asp:TemplateField>--%>
-
                     <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" ><ControlStyle BorderStyle="None"></ControlStyle><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" HeaderStyle-ForeColor="#990099" ><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
                     <asp:BoundField DataField="AccountType" HeaderText="AccountType" SortExpression="AccountType" HeaderStyle-ForeColor="#990099" ><HeaderStyle ForeColor="#990099"></HeaderStyle></asp:BoundField>
