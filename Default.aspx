@@ -3,6 +3,8 @@
     11-12-19 - Amanda edited button text, password visibility, and design.
     11-16-19 - Alec added functionality.
     11-17-19 - Amanda edited design to match other pages.
+    11-19-19 - Faith added session variables.
+    11-19-19 - Amanda added functionality for checking Active variable.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
