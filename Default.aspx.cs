@@ -56,10 +56,14 @@ public partial class _Default : System.Web.UI.Page
             if(String.Equals(accountType, "Admin", StringComparison.CurrentCultureIgnoreCase))
             {
                 Response.Redirect("AdminLanding.aspx");
+                Session["UserName"] = txtUsername.text;
+                Session["AccountType"] = accountType;
             }
             else if(String.Equals(accountType, "User", StringComparison.CurrentCultureIgnoreCase))
             {
                 Response.Redirect("UserLanding.aspx");
+                Session["UserName"] = txtUsername.text;
+                Session["AccountType"] = accountType;
             }
             else
             {
