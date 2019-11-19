@@ -18,7 +18,7 @@ public partial class EditUser : System.Web.UI.Page
 
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
-        string username, password, fName, lName, department, title, accountType;
+        string username, password, fName, lName, department, title, accountType, isActive;
         char canVote;
 
         int numRowsAffected;
@@ -54,14 +54,24 @@ public partial class EditUser : System.Web.UI.Page
                     accountType = "user";
                 }
 
+                if (cbActive.Checked == true)
+                {
+                    isActive = "YES";
+                }
+                else
+                {
+                    isActive = "NO";
+                }
+
                 SqlConnection conn = new SqlConnection(getConnectionString());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO People (Username, Password, FirstName, LastName, "+
-                    "Department, Title, AccountType, CanVote) "
+                    "Department, Title, AccountType, CanVote, Active) "
                     + "VALUES ('" + username + "','" + password + "','" + fName + "','" + lName + "','" 
-                    + department + "','" + title + "','" + accountType + "','" + canVote + "')";
+                    + department + "','" + title + "','" + accountType + "','" + canVote + "','" 
+                    + isActive + "')";
                 conn.Open();
 
                 try
