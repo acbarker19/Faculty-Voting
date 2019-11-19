@@ -11,9 +11,15 @@ public partial class VoteOnElection : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            ddlPickElection.DataSource = sdsElectionFaculty;
+            ddlPickElection.DataSource = sdsPickElection; // sdsElectionFaculty;
             ddlPickElection.DataBind();
             ddlPickElection.Items.Insert(0, new ListItem("Select a Election", "%"));
         }
+        else
+        {
+            gvElectionVoting.DataSource = sdsElectionFaculty;
+            gvElectionVoting.DataBind();
+        }
+
     }
 }

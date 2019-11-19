@@ -41,14 +41,16 @@ public partial class _Default : System.Web.UI.Page
 
         for (int row = 0; row < ds.Tables[0].Rows.Count; row++)
         {
-            //Checks if username exists (not case sensitive) and if it matches the password (case sensitive)
+            //Checks if username exists (not case sensitive) and if it matches the password (case sensitive) and if the user is active
             if (String.Equals(ds.Tables[0].Rows[row]["Username"].ToString(), txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)
-                && ds.Tables[0].Rows[row]["Password"].ToString() == txtPassword.Text)
+                && ds.Tables[0].Rows[row]["Password"].ToString() == txtPassword.Text
+                && ds.Tables[0].Rows[row]["Active"].ToString() == "YES")
             {
                 loginAllowed = true;
                 accountType = ds.Tables[0].Rows[row]["AccountType"].ToString();
                 break;
             }
+       
         }
 
         if (loginAllowed)
@@ -56,10 +58,14 @@ public partial class _Default : System.Web.UI.Page
             if(String.Equals(accountType, "Admin", StringComparison.CurrentCultureIgnoreCase))
             {
                 Response.Redirect("AdminLanding.aspx");
+                //Session["UserName"] = txtUsername.Text;
+                //Session["AccountType"] = accountType;
             }
             else if(String.Equals(accountType, "User", StringComparison.CurrentCultureIgnoreCase))
             {
                 Response.Redirect("UserLanding.aspx");
+                //Session["UserName"] = txtUsername.Text;
+                //Session["AccountType"] = accountType;
             }
             else
             {
@@ -68,7 +74,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            lblStatus.Text = "The entered username or password was incorrect.";
+            lblStatus.Text = "The entered username or password was incorrect or you do not have permission to log in.";
         }
     }
 }

@@ -2,6 +2,7 @@
     11-12-19 - Brody started working on the design view.
     11-12-19 - Amanda edited design.
     11-14-19 - Amanda worked on button functionality.
+    11-17-19 - Amanda edited design to match other pages.
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditCommittee.aspx.cs" Inherits="EditCommittee" %>
@@ -19,12 +20,22 @@
             <hr />
                 <asp:GridView ID="gvCommittees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CommitteeID" DataSourceID="sdsCommittees">
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
-                        <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" InsertVisible="False" ReadOnly="True" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" />
-                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" HeaderStyle-ForeColor="#990099" />
-                        <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" HeaderStyle-ForeColor="#990099" />
-                        <asp:BoundField DataField="CommitteeSize" HeaderText="CommitteeSize" SortExpression="CommitteeSize" HeaderStyle-ForeColor="#990099" />
-                        <asp:BoundField DataField="TermLength" HeaderText="TermLength" SortExpression="TermLength" HeaderStyle-ForeColor="#990099" />
+                        <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+                        <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" InsertVisible="False" ReadOnly="True" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        </asp:BoundField>
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        </asp:BoundField>
+                        <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        </asp:BoundField>
+                        <asp:BoundField DataField="CommitteeSize" HeaderText="CommitteeSize" SortExpression="CommitteeSize" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        </asp:BoundField>
+                        <asp:BoundField DataField="TermLength" HeaderText="TermLength" SortExpression="TermLength" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        </asp:BoundField>
                     </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="sdsCommittees" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Committee]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Committee] WHERE [CommitteeID] = @original_CommitteeID AND [Name] = @original_Name AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([CommitteeSize] = @original_CommitteeSize) OR ([CommitteeSize] IS NULL AND @original_CommitteeSize IS NULL)) AND (([TermLength] = @original_TermLength) OR ([TermLength] IS NULL AND @original_TermLength IS NULL))" InsertCommand="INSERT INTO [Committee] ([Name], [Description], [CommitteeSize], [TermLength]) VALUES (@Name, @Description, @CommitteeSize, @TermLength)" UpdateCommand="UPDATE [Committee] SET [Name] = @Name, [Description] = @Description, [CommitteeSize] = @CommitteeSize, [TermLength] = @TermLength WHERE [CommitteeID] = @original_CommitteeID AND [Name] = @original_Name AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([CommitteeSize] = @original_CommitteeSize) OR ([CommitteeSize] IS NULL AND @original_CommitteeSize IS NULL)) AND (([TermLength] = @original_TermLength) OR ([TermLength] IS NULL AND @original_TermLength IS NULL))">
@@ -53,6 +64,7 @@
                     <asp:Parameter Name="original_TermLength" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+                <br />
                 <table>
                     <tr>
                         <td><asp:Label ID="lblCommitName" runat="server" Text="Commitee Name:"></asp:Label></td>

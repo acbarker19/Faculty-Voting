@@ -9,6 +9,11 @@ public partial class AdminLanding : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Response.Write("AccountType is" + Session["AccountType"] + ".");
 
+        //if (Session["AccountType"] == user)
+        //{
+        //    Response.Redirect("Error.aspx");
+        //}
     }
 }

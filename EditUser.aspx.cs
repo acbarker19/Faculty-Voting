@@ -16,79 +16,9 @@ public partial class EditUser : System.Web.UI.Page
 
     }
 
-    //protected void gvUsers_RowDeleted(object sender, GridViewDeletedEventArgs e)
-    //{
-    //    if (e.Exception != null)
-    //    {
-    //        lblUserStatus.Text = "Unable to delete.";
-    //        e.ExceptionHandled = true;
-    //    }
-    //    else
-    //    {
-    //        if (e.AffectedRows == 0)
-    //        {
-    //            lblUserStatus.Text = "Delete failed. Someone else already deleted this user.";
-    //        }
-    //        else
-    //        {
-    //            lblUserStatus.Text = "Deleted OK";
-    //        }
-    //    }
-    //}
-
-    //protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    string username, password;
-
-    //    if (e.CommandName == "DeleteAsk")
-    //    {
-    //        GridViewRow gvr = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
-    //        int rowIndex = gvr.RowIndex;
-    //        username = gvUsers.Rows[rowIndex].Cells[1].Text;
-    //        password = gvUsers.Rows[rowIndex].Cells[2].Text;
-
-    //        Response.Write("You chose to delete " + username + ": " + password);
-
-    //        e.Handled = true;
-
-    //    }
-
-    //    int numRowsAffected;
-    //    SqlConnection conn;
-    //    SqlCommand cmd;
-
-    //    conn = new SqlConnection(getConnectionString());
-    //    conn.Open();
-
-    //    cmd = new SqlCommand();
-    //    cmd.Connection = conn;
-    //    cmd.CommandType = CommandType.Text;
-    //    cmd.CommandText = "DELETE FROM People WHERE Username = '" + username + "'";
-
-    //    try
-    //    {
-    //        numRowsAffected = cmd.ExecuteNonQuery();
-    //        if (numRowsAffected == 1)
-    //        {
-    //            lblUserStatus.Text = username + ": " + password + " deleted.";
-    //            gvUsers.DataBind();
-    //        }
-    //        else
-    //        {
-    //            lblUserStatus.Text = "Not deleted. Someone else already deleted it.";
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        lblUserStatus.Text = "Not deleted.";
-    //    }
-
-    //    conn.Close();
-    //}
-
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
-        string username, password, fName, lName, department, title, accountType;
+        string username, password, fName, lName, department, title, accountType, isActive;
         char canVote;
 
         int numRowsAffected;
@@ -124,14 +54,24 @@ public partial class EditUser : System.Web.UI.Page
                     accountType = "user";
                 }
 
+                if (cbActive.Checked == true)
+                {
+                    isActive = "YES";
+                }
+                else
+                {
+                    isActive = "NO";
+                }
+
                 SqlConnection conn = new SqlConnection(getConnectionString());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO People (Username, Password, FirstName, LastName, "+
-                    "Department, Title, AccountType, CanVote) "
+                    "Department, Title, AccountType, CanVote, Active) "
                     + "VALUES ('" + username + "','" + password + "','" + fName + "','" + lName + "','" 
-                    + department + "','" + title + "','" + accountType + "','" + canVote + "')";
+                    + department + "','" + title + "','" + accountType + "','" + canVote + "','" 
+                    + isActive + "')";
                 conn.Open();
 
                 try
