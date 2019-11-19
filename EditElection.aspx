@@ -21,10 +21,16 @@
         <hr />
         <asp:GridView ID="gvElections" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ElectionID" DataSourceID="sdsElections">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
-                <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" HeaderStyle-ForeColor="#990099" />
-                <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" HeaderStyle-ForeColor="#990099" />
-                <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" InsertVisible="False" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" />
+                <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+                <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" InsertVisible="False" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                </asp:BoundField>
             </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="sdsElections" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" DeleteCommand="DELETE FROM [Election] WHERE [ElectionID] = @original_ElectionID AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL))" InsertCommand="INSERT INTO [Election] ([StartDate], [EndDate]) VALUES (@StartDate, @EndDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Election]" UpdateCommand="UPDATE [Election] SET [StartDate] = @StartDate, [EndDate] = @EndDate WHERE [ElectionID] = @original_ElectionID AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL))">

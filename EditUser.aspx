@@ -21,15 +21,36 @@
             <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
-                    <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="AccountType" HeaderText="AccountType" SortExpression="AccountType" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="CanVote" HeaderText="CanVote" SortExpression="CanVote" HeaderStyle-ForeColor="#990099" ></asp:BoundField>
-                    <asp:BoundField DataField="Active" HeaderText="Active" SortExpression="Active" HeaderStyle-ForeColor="#990099" />
+                    <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+                    <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" >
+<ControlStyle BorderStyle="None"></ControlStyle>
+
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="AccountType" HeaderText="AccountType" SortExpression="AccountType" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="CanVote" HeaderText="CanVote" SortExpression="CanVote" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Active" HeaderText="Active" SortExpression="Active" HeaderStyle-ForeColor="#990099" >
+<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                    </asp:BoundField>
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="sdsUsers" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [People]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [People] WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote AND (([Active] = @original_Active) OR ([Active] IS NULL AND @original_Active IS NULL))" InsertCommand="INSERT INTO [People] ([Username], [Password], [AccountType], [FirstName], [LastName], [Department], [Title], [CanVote], [Active]) VALUES (@Username, @Password, @AccountType, @FirstName, @LastName, @Department, @Title, @CanVote, @Active)" UpdateCommand="UPDATE [People] SET [Password] = @Password, [AccountType] = @AccountType, [FirstName] = @FirstName, [LastName] = @LastName, [Department] = @Department, [Title] = @Title, [CanVote] = @CanVote, [Active] = @Active WHERE [Username] = @original_Username AND [Password] = @original_Password AND (([AccountType] = @original_AccountType) OR ([AccountType] IS NULL AND @original_AccountType IS NULL)) AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND [CanVote] = @original_CanVote AND (([Active] = @original_Active) OR ([Active] IS NULL AND @original_Active IS NULL))">
