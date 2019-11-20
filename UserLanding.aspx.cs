@@ -11,7 +11,7 @@ public partial class UserLanding : System.Web.UI.Page
     {
         Response.Write("AccountType is " + Session["AccountType"] + ".");
 
-        if (Session["AccountType"] == "admin")
+        if (Session["AccountType"].Equals("admin"))
         {
             Response.Redirect("Error.aspx");
         }
