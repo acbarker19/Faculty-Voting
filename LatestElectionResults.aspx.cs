@@ -10,6 +10,8 @@ using System.Configuration; // for getting ConnectionString from Web.config
 using System.Data; // for the DataSet class and for CommandType
 using System.Data.SqlClient; // for SqlConnection, SqlCommand, etc.
 
+using System.Collections; // for ArrayList
+
 public partial class LatestElectionResults : System.Web.UI.Page
 {
     private DataSet dsGeneral;
@@ -30,7 +32,72 @@ public partial class LatestElectionResults : System.Web.UI.Page
         else
         {
             DataSet dsSpecific = getSpecificElectionResults(electionID);
-            lblInfo.Text = Convert.ToString(dsSpecific.Tables[0].Rows[0]["Description"]);
+
+            DateTime startDate = Convert.ToDateTime(dsSpecific.Tables[0].Rows[0]["StartDate"]);
+            DateTime endDate = Convert.ToDateTime(dsSpecific.Tables[0].Rows[0]["EndDate"]);
+
+            lblInfo.Text = "<table><tr><td colspan=\"2\"><h3>Election #" + electionID + "</h3></td></tr>" +
+                "<tr><td>Start Date</td><td>" + startDate.ToString("MMMM dd, yyyy") +
+                "</td></tr><tr><td>End Date</td><td>" + endDate.ToString("MMMM dd, yyyy") + "</td></tr></table>" +
+                "<br /><br />";
+
+            ArrayList committeesRunning = new ArrayList();
+
+            int committeeID = -1;
+
+            for (int row = 0; row < dsSpecific.Tables[0].Rows.Count; row++)
+            {
+                committeeID = Convert.ToInt32(dsSpecific.Tables[0].Rows[row]["CommitteeID"]);
+
+                if (committeeID != -1 && committeesRunning.Contains(committeeID) == false)
+                {
+                    committeesRunning.Add(committeeID);
+                }
+            }
+
+            DataSet dsCommittee;
+            int totalVotes;
+            int numPositionsAvailable;
+            String name;
+            
+
+            for(int committee = 0; committee < committeesRunning.Count; committee++)
+            {
+                dsCommittee = getSpecificElectionResultsForCommittee(electionID,
+                    Convert.ToInt32(committeesRunning[committee]));
+                totalVotes = 0;
+                numPositionsAvailable = Convert.ToInt32(dsCommittee.Tables[0].Rows[0]["NumPositionsAvailable"]);
+
+                List<Tuple<String, int>> voteList = new List<Tuple<String, int>>();
+
+                lblInfo.Text += "<table><tr><td colspan=\"2\"><b>" + dsCommittee.Tables[0].Rows[0]["Name"] +
+                    "</b> - " + numPositionsAvailable + " Position(s) Available" +
+                    "</td></tr><tr><td colspan=\"2\">" + dsCommittee.Tables[0].Rows[0]["Description"] +
+                    "</td></tr><tr><td colspan=\"2\"><hr></td></tr>";
+
+                for (int row = 0; row < dsCommittee.Tables[0].Rows.Count; row++)
+                {
+                    name = dsCommittee.Tables[0].Rows[row]["FirstName"] + " " + dsCommittee.Tables[0].Rows[row]["LastName"];
+                    lblInfo.Text += "<tr><td>" + name + "</td><td>" +
+                            dsCommittee.Tables[0].Rows[row]["NumberOfVotes"] + "</td></tr>";
+                    totalVotes += Convert.ToInt32(dsCommittee.Tables[0].Rows[row]["NumberOfVotes"]);
+
+                    voteList.Add(Tuple.Create(name, Convert.ToInt32(dsCommittee.Tables[0].Rows[row]["NumberOfVotes"])));
+                }
+
+                voteList = voteList.OrderBy(i => i.Item2).ToList();
+
+                lblInfo.Text += "<tr><td colspan=\"2\"><hr></td></tr><tr><td>Total Number of Votes</td><td>" +
+                    totalVotes + "</td></tr><tr><td colspan=\"2\"><hr></td></tr>";
+
+                for (int position = 0; position < numPositionsAvailable; position++)
+                {
+                    lblInfo.Text += "<tr><td colspan=\"2\">" + voteList[position].Item1 + " was elected to " +
+                        dsCommittee.Tables[0].Rows[0]["Name"] + "</td></tr>";
+                }
+
+                lblInfo.Text += "</table><br /><br />";
+            }
         }
     }
 
@@ -52,7 +119,19 @@ public partial class LatestElectionResults : System.Web.UI.Page
     [DataObjectMethod(DataObjectMethodType.Select)]
     public DataSet getSpecificElectionResults(int electionID)
     {
-        SqlDataAdapter dad = new SqlDataAdapter("EXEC getSpecificElectionResults " + electionID, getConnectionString());
+        SqlDataAdapter dad = new SqlDataAdapter("EXEC getSpecificElectionResults " + electionID,
+            getConnectionString());
+        DataSet ds = new DataSet();
+        dad.Fill(ds);
+
+        return ds;
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public DataSet getSpecificElectionResultsForCommittee(int electionID, int committeeID)
+    {
+        SqlDataAdapter dad = new SqlDataAdapter("EXEC getSpecificElectionResultsForCommittee " +
+            electionID + ", " + committeeID, getConnectionString());
         DataSet ds = new DataSet();
         dad.Fill(ds);
 
@@ -63,14 +142,14 @@ public partial class LatestElectionResults : System.Web.UI.Page
     {
         int electionID = -1;
         DateTime today = DateTime.Today;
-        DateTime newestEndDate = DateTime.Today;
+        DateTime newestEndDate = Convert.ToDateTime("01/01/0001");
         
         for (int row = 0; row < dsGeneral.Tables[0].Rows.Count; row++)
         {
             DateTime endDate = Convert.ToDateTime(dsGeneral.Tables[0].Rows[row]["EndDate"].ToString());
 
             //Checks if the election ended before today and if it is the last election to end.
-            if (DateTime.Compare(today, endDate) > 0 && DateTime.Compare(endDate, newestEndDate) > 0)
+            if (endDate.Date < today.Date && newestEndDate.Date < endDate.Date)
             {
                 newestEndDate = Convert.ToDateTime(dsGeneral.Tables[0].Rows[row]["EndDate"]);
                 electionID = Convert.ToInt32(dsGeneral.Tables[0].Rows[row]["ElectionID"]);

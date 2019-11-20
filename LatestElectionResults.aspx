@@ -15,7 +15,6 @@
     <form id="form1" runat="server">
         <h2>Latest Election</h2>
         <hr />
-
         <br />
         <asp:Label ID="lblInfo" runat="server" Text="" ForeColor="#990099" Font-Bold="True"></asp:Label>
     </form>
