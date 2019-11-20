@@ -9,7 +9,7 @@ public partial class AdminLanding : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write("AccountType is " + Session["AccountType"] + ".");
+        //Response.Write("AccountType is " + Session["AccountType"] + ".");
 
         if (Session["AccountType"].Equals("user"))
         {

@@ -13,9 +13,9 @@ public partial class EditUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write("AccountType is " + Session["AccountType"] + ".");
+        //Response.Write("AccountType is " + Session["AccountType"] + ".");
 
-        if (Session["AccountType"] == "user")
+        if (Session["AccountType"].Equals("user"))
         {
             Response.Redirect("Error.aspx");
         }
