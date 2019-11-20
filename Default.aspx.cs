@@ -16,7 +16,10 @@ public partial class _Default : System.Web.UI.Page
     {
 
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
 
+    }
     private string getConnectionString()
     {
         return ConfigurationManager.ConnectionStrings["FacultyVotingConnectionString"].ConnectionString;

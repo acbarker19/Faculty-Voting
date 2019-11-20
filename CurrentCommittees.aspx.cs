@@ -11,4 +11,8 @@ public partial class CurrentCommittees : System.Web.UI.Page
     {
 
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+
+    }
 }

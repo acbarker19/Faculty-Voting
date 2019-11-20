@@ -20,7 +20,10 @@ public partial class EditUser : System.Web.UI.Page
             Response.Redirect("Error.aspx");
         }
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
 
+    }
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
         string username, password, fName, lName, department, title, accountType, isActive;

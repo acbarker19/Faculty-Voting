@@ -35,6 +35,9 @@
         </asp:SqlDataSource>
         <br />
         <asp:Label ID="lblStatus" runat="server" Text="" EnableViewState ="False" ForeColor="#990099" Font-Bold="True"></asp:Label>
+        <br />
+        <br />
+        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
     </form>
 </body>
 </html>

@@ -16,4 +16,9 @@ public partial class AdminLanding : System.Web.UI.Page
             Response.Redirect("Error.aspx");
         }
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+
+    }
+
 }

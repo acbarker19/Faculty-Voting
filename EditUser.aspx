@@ -141,6 +141,11 @@
                     <td colspan="2"><asp:Label ID="lblUserStatus" runat="server" ForeColor="#990099"></asp:Label></td>
                 </tr>
             </table>
+
+            <p>
+                <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+            </p>
+
     </form>
 </body>
 </html>

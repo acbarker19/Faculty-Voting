@@ -20,6 +20,11 @@
             <li><a href="LatestElectionResults.aspx">View the Latest Election Results</a></li>
             <li><a href="CurrentCommittees.aspx">View Current Committees</a></li>
         </ul>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+        </p>
     </form>
 </body>
 </html>

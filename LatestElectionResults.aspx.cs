@@ -22,7 +22,10 @@ public partial class LatestElectionResults : System.Web.UI.Page
 
         displayElectionInfo(getNewestCompleteElection());
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
 
+    }
     private void displayElectionInfo(int electionID)
     {
         if (electionID == -1)

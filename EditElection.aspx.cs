@@ -16,7 +16,10 @@ public partial class EditElection : System.Web.UI.Page
             Response.Redirect("Error.aspx");
         }
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
 
+    }
     protected void btnAddElection_Click(object sender, EventArgs e)
     {
         string StartDate = txtStartDate.Text;

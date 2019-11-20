@@ -20,6 +20,9 @@ public partial class VoteOnElection : System.Web.UI.Page
             gvElectionVoting.DataSource = sdsElectionFaculty;
             gvElectionVoting.DataBind();
         }
+    }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
 
     }
 }
