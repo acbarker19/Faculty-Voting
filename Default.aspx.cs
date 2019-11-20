@@ -57,15 +57,15 @@ public partial class _Default : System.Web.UI.Page
         {
             if(String.Equals(accountType, "Admin", StringComparison.CurrentCultureIgnoreCase))
             {
+                Session["UserName"] = txtUsername.Text;
+                Session["AccountType"] = accountType;
                 Response.Redirect("AdminLanding.aspx");
-                //Session["UserName"] = txtUsername.Text;
-                //Session["AccountType"] = accountType;
             }
             else if(String.Equals(accountType, "User", StringComparison.CurrentCultureIgnoreCase))
             {
+                Session["UserName"] = txtUsername.Text;
+                Session["AccountType"] = accountType;
                 Response.Redirect("UserLanding.aspx");
-                //Session["UserName"] = txtUsername.Text;
-                //Session["AccountType"] = accountType;
             }
             else
             {

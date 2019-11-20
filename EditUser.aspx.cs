@@ -13,7 +13,12 @@ public partial class EditUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.Write("AccountType is " + Session["AccountType"] + ".");
 
+        if (Session["AccountType"] == "user")
+        {
+            Response.Redirect("Error.aspx");
+        }
     }
 
     protected void btnAddUser_Click(object sender, EventArgs e)

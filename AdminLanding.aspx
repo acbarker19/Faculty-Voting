@@ -17,7 +17,6 @@
         <hr />
         <ul>
             <li><a href="VoteOnElection.aspx">Vote in an Election</a></li>
-            <br />
             <li><a href="LatestElectionResults.aspx">View the Latest Election Results</a></li>
             <li><a href="CurrentCommittees.aspx">View Current Committees</a></li>
             <br />
