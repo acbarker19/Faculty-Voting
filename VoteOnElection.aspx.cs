@@ -14,6 +14,10 @@ public partial class VoteOnElection : System.Web.UI.Page
             ddlPickElection.DataSource = sdsPickElection; // sdsElectionFaculty;
             ddlPickElection.DataBind();
             ddlPickElection.Items.Insert(0, new ListItem("Select an Election", "%"));
+            if (ddlPickElection.Items.Count <= 1)
+            {
+                lblStatus.Text = "There is no current elections occuring. Please check again later.";
+            }
         }
         else
         {
