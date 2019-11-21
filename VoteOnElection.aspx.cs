@@ -13,12 +13,20 @@ public partial class VoteOnElection : System.Web.UI.Page
         {
             ddlPickElection.DataSource = sdsPickElection; // sdsElectionFaculty;
             ddlPickElection.DataBind();
-            ddlPickElection.Items.Insert(0, new ListItem("Select a Election", "%"));
+            ddlPickElection.Items.Insert(0, new ListItem("Select an Election", "%"));
         }
         else
         {
-            gvElectionVoting.DataSource = sdsElectionFaculty;
-            gvElectionVoting.DataBind();
+            try
+            {
+                gvElectionVoting.DataSource = sdsElectionFaculty;
+                gvElectionVoting.DataBind();
+            }
+            catch (FormatException)
+            {
+                gvElectionVoting.DataSource = null;
+                gvElectionVoting.DataBind();
+            }
         }
     }
     protected void btnLogOut_Click(object sender, EventArgs e)

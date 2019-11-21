@@ -20,7 +20,7 @@
         <asp:Label ID="lblElectionPicker" runat="server" Text="Select a election to vote on by ID: "></asp:Label>
         <asp:DropDownList ID="ddlPickElection" runat="server" DataTextField="ElectionID" DataValueField="ElectionID" AutoPostBack="True" Height="16px"></asp:DropDownList>
         <br /> <br />
-        <asp:SqlDataSource ID="sdsPickElection" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT [ElectionID] FROM [FacultyRunning] ORDER BY [ElectionID]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="sdsPickElection" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT [ElectionID] FROM [Election]"></asp:SqlDataSource>
         <asp:GridView ID="gvElectionVoting" runat="server" AutoGenerateColumns="False" DataKeyNames="Username,ElectionID" >
             <Columns>
                 <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" />
