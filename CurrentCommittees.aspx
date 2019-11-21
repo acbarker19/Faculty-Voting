@@ -1,10 +1,4 @@
-﻿<!--
-    11-13-19 - Alec created the page and set up the GridView.
-    11-17-19 - Faith got the connect gridView working.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CurrentCommittees.aspx.cs" Inherits="CurrentCommittees" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CurrentCommittees.aspx.cs" Inherits="CurrentCommittees" %>
 
 <!DOCTYPE html>
 

@@ -1,13 +1,4 @@
-﻿<!--
-    11-12-19 - Faith started working on the design view.
-    11-12-19 - Amanda edited design.
-    11-14-19 - Faith started working on btnAddElection.
-    11-14-19 - Amanda treoubleshooted btnAddElection issues.
-    11-15-19 - Faith continued working on btnAddElection.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditElection.aspx.cs" Inherits="EditElection" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditElection.aspx.cs" Inherits="EditElection" %>
 
 <!DOCTYPE html>
 

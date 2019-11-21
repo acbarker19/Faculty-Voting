@@ -18,7 +18,8 @@ public partial class AdminLanding : System.Web.UI.Page
     }
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
-
+        Session.Abandon();
+        Response.Redirect("Default.aspx");
     }
 
 }

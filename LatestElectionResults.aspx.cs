@@ -24,7 +24,8 @@ public partial class LatestElectionResults : System.Web.UI.Page
     }
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
-
+        Session.Abandon();
+        Response.Redirect("Default.aspx");
     }
     private void displayElectionInfo(int electionID)
     {

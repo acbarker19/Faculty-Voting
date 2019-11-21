@@ -1,9 +1,4 @@
-﻿<!--
-    11-13-19 - Alec updated links.
-    11-14-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserLanding.aspx.cs" Inherits="UserLanding" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserLanding.aspx.cs" Inherits="UserLanding" %>
 
 <!DOCTYPE html>
 

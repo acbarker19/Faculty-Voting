@@ -1,11 +1,4 @@
-﻿<!--
-    11-12-19 - Alec created page.
-    11-12-19 - Amanda edited design.
-    11-17-19 - Faith worked on the gridview, ddl, general layout.
-    11-17-19 - Amanda helped with functionality and edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VoteOnElection.aspx.cs" Inherits="VoteOnElection" Debug="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VoteOnElection.aspx.cs" Inherits="VoteOnElection" Debug="true" %>
 
 <!DOCTYPE html>
 
