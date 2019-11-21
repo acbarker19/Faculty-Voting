@@ -7,8 +7,8 @@
     <title>Edit Users</title>
 </head>
 <body>
-    <header>
-        <table style="width:100%">
+    <form id="form1" runat="server">
+       <table style="width:100%">
             <tr style="width:100%">
                 <td style="width:100%"><h2 style="text-align:left">Edit/Add Users</h2></td>
                 <td style="width:100%">
@@ -16,8 +16,6 @@
                 </td>
             </tr>
         </table>
-    </header>
-    <form id="form1" runat="server">
             <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
