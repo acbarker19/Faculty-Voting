@@ -9,8 +9,15 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-            <h2>Add/Edit Committees</h2>
+            <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Add/Edit Committees</h2></td>
+                <td style="width:100%">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+            </table>
             <hr />
                 <asp:GridView ID="gvCommittees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CommitteeID" DataSourceID="sdsCommittees">
                     <Columns>

@@ -22,11 +22,25 @@ public partial class LatestElectionResults : System.Web.UI.Page
 
         displayElectionInfo(getNewestCompleteElection());
     }
+
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
         Session.Abandon();
         Response.Redirect("Default.aspx");
     }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        if (Session["AccountType"].Equals("admin"))
+        {
+            Response.Redirect("AdminLanding.aspx");
+        }
+        else if (Session["AccountType"].Equals("user"))
+        {
+            Response.Redirect("UserLanding.aspx");
+        }
+    }
+
     private void displayElectionInfo(int electionID)
     {
         if (electionID == -1)

@@ -8,8 +8,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        <h2>Administrator Actions</h2>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Administrator Actions</h2></td>
+                <td style="width:100%">
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+        </table>
         <hr />
         <ul>
             <li><a href="VoteOnElection.aspx">Vote in an Election</a></li>

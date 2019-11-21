@@ -16,4 +16,17 @@ public partial class CurrentCommittees : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Default.aspx");
     }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        if (Session["AccountType"].Equals("admin"))
+        {
+            Response.Redirect("AdminLanding.aspx");
+        }
+        else if (Session["AccountType"].Equals("user"))
+        {
+            Response.Redirect("UserLanding.aspx");
+        }
+    }
+
 }

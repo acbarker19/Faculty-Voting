@@ -9,16 +9,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="Button1" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-            <h2>Error Page</h2>
+            <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Error Page</h2></td>
+                <td style="width:100%">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+            </table>
             <hr />
             <br />
-            You do not have permission to view this page.
-            We recommend using the back button on your browser to return to the last page you were on.
-            Click the button below to return to the page you encounter upon logging in.
-            <br />
-            <br />
-            <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+            You do not have permission to view this page. Please click the "Home" button.
         </div>
     </form>
 </body>

@@ -8,20 +8,27 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="Button1" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        <h2>Add/Edit Elections</h2>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Add/Edit Elections</h2></td>
+                <td style="width:100%">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+        </table>
         <hr />
         <asp:GridView ID="gvElections" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ElectionID" DataSourceID="sdsElections">
             <Columns>
                 <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                 <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
                 <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
                 <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" InsertVisible="False" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
             </Columns>
             </asp:GridView>

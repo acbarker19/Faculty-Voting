@@ -8,8 +8,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        <h2>Vote On Election</h2>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Vote On Elections</h2></td>
+                <td style="width:100%">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+        </table>
         <hr />
         <asp:Label ID="lblElectionPicker" runat="server" Text="Select a election to vote on by ID: "></asp:Label>
         <asp:DropDownList ID="ddlPickElection" runat="server" DataTextField="ElectionID" DataValueField="ElectionID" AutoPostBack="True" Height="16px"></asp:DropDownList>
