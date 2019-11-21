@@ -53,6 +53,10 @@
         <br />
         <table>
             <tr>
+                <td>Please type your dates in this format: </td>
+                <td>YYYY-MM-DD</td>
+            </tr>
+            <tr>
                 <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date:"></asp:Label></td>
                 <td><asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox></td>
             </tr>
