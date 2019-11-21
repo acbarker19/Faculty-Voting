@@ -1,9 +1,4 @@
-﻿<!--
-    11-13-19 - Alec created the page and added labels.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LatestElectionResults.aspx.cs" Inherits="LatestElectionResults" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LatestElectionResults.aspx.cs" Inherits="LatestElectionResults" %>
 
 <!DOCTYPE html>
 

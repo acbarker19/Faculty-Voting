@@ -1,13 +1,4 @@
-﻿<!--
-    11-12-19 - Jacob created, set up gv and sds, added textboxes/labels for adding.
-    11-12-19 - Amanda edited design.
-    11-14-19 - Amanda worked on btn functionality.
-    11-15-19 - Jacob attempted to fix checkboxes - failed.
-    11-17-19 - Amanda worked on functionality and edited design to match other pages.
-    11-19-19 - Amanda added functionality for the Active variable in People table.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
 
 <!DOCTYPE html>
 

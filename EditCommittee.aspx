@@ -1,11 +1,4 @@
-﻿<!--
-    11-12-19 - Brody started working on the design view.
-    11-12-19 - Amanda edited design.
-    11-14-19 - Amanda worked on button functionality.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditCommittee.aspx.cs" Inherits="EditCommittee" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditCommittee.aspx.cs" Inherits="EditCommittee" %>
 
 <!DOCTYPE html>
 

@@ -1,9 +1,4 @@
-﻿<!--
-    11-13-19 - Alec updated page to aspx instead of html to account for the session variable. Updated links.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminLanding.aspx.cs" Inherits="AdminLanding" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminLanding.aspx.cs" Inherits="AdminLanding" %>
 
 <!DOCTYPE html>
 
