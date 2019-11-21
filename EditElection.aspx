@@ -17,6 +17,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Button ID="Button1" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
         <h2>Add/Edit Elections</h2>
         <hr />
         <asp:GridView ID="gvElections" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ElectionID" DataSourceID="sdsElections">
@@ -68,9 +69,7 @@
                 <td colspan="2"><asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="True" ForeColor="#990099"></asp:Label></td>
             </tr>
         </table>
-        <p>
-            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        </p>
+        
     </form>
 </body>
 </html>

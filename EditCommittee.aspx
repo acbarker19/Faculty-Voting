@@ -16,25 +16,26 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
             <h2>Add/Edit Committees</h2>
             <hr />
                 <asp:GridView ID="gvCommittees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CommitteeID" DataSourceID="sdsCommittees">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" InsertVisible="False" ReadOnly="True" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="CommitteeSize" HeaderText="CommitteeSize" SortExpression="CommitteeSize" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="TermLength" HeaderText="TermLength" SortExpression="TermLength" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                     </Columns>
             </asp:GridView>
@@ -90,9 +91,7 @@
                     </tr>
             </table>
         </div>
-        <p>
-            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        </p>
+
     </form>
 </body>
 </html>

@@ -17,39 +17,40 @@
 </head>
 <body>
     <form id="form1" runat="server">
+            <asp:Button ID="Button1" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
             <h2>Edit/Add Users</h2>
             <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" >
-<ControlStyle BorderStyle="None"></ControlStyle>
+                    <ControlStyle BorderStyle="None"></ControlStyle>
 
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="AccountType" HeaderText="AccountType" SortExpression="AccountType" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="CanVote" HeaderText="CanVote" SortExpression="CanVote" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Active" HeaderText="Active" SortExpression="Active" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                 </Columns>
             </asp:GridView>
@@ -141,10 +142,6 @@
                     <td colspan="2"><asp:Label ID="lblUserStatus" runat="server" ForeColor="#990099"></asp:Label></td>
                 </tr>
             </table>
-
-            <p>
-                <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-            </p>
 
     </form>
 </body>

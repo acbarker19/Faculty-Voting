@@ -15,6 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
         <h2>Vote On Election</h2>
         <hr />
         <asp:Label ID="lblElectionPicker" runat="server" Text="Select a election to vote on by ID: "></asp:Label>
@@ -35,9 +36,6 @@
         </asp:SqlDataSource>
         <br />
         <asp:Label ID="lblStatus" runat="server" Text="" EnableViewState ="False" ForeColor="#990099" Font-Bold="True"></asp:Label>
-        <br />
-        <br />
-        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
     </form>
 </body>
 </html>

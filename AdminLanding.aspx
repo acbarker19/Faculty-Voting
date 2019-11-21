@@ -13,6 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
         <h2>Administrator Actions</h2>
         <hr />
         <ul>
@@ -27,8 +28,7 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        </p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
