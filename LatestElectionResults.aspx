@@ -18,10 +18,7 @@
             </tr>
         </table>
         <hr />
-        <br />
         <asp:Label ID="lblInfo" runat="server" Text="" ForeColor="#990099" Font-Bold="True"></asp:Label>
-        <br />
-        <br />
     </form>
 </body>
 </html>

@@ -8,8 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table style="width:100%">
+        <table style="width:100%">
             <tr style="width:100%">
                 <td style="width:100%"><h2 style="text-align:left">Edit/Add Committees</h2></td>
                 <td style="width:100%;white-space: nowrap;">
@@ -89,9 +88,7 @@
                     <tr>
                         <td colspan="2"><asp:Label ID="lblCommitStatus" runat="server" ForeColor="#990099" EnableViewState="false"></asp:Label></td>
                     </tr>
-            </table>
-        </div>
-
+                </table>
     </form>
 </body>
 </html>

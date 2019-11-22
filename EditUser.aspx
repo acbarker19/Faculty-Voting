@@ -140,7 +140,6 @@
                     <td colspan="2"><asp:Label ID="lblUserStatus" runat="server" ForeColor="#990099"></asp:Label></td>
                 </tr>
             </table>
-
     </form>
 </body>
 </html>

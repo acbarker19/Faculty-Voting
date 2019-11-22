@@ -71,7 +71,6 @@
                 <td colspan="2"><asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="True" ForeColor="#990099"></asp:Label></td>
             </tr>
         </table>
-        
     </form>
 </body>
 </html>

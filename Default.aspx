@@ -26,10 +26,6 @@
         </table>
         <br />
         <asp:Label ID="lblStatus" runat="server" ForeColor="#990099" Font-Bold="True"></asp:Label>
-        <br /><br />
-        <%--<a href="AdminLanding.aspx">Link to Other Pages</a>--%>
     </form>
 </body>
 </html>
-
-

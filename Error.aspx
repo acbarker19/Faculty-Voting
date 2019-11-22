@@ -8,8 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table style="width:100%">
+        <table style="width:100%">
             <tr style="width:100%">
                 <td style="width:100%"><h2 style="text-align:left">Error</h2></td>
                 <td style="width:100%;white-space: nowrap;">
@@ -17,11 +16,9 @@
                     <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
                 </td>
             </tr>
-            </table>
+        </table>
             <hr />
-            <br />
             You do not have permission to view this page. Please click the "Home" button.
-        </div>
     </form>
 </body>
 </html>

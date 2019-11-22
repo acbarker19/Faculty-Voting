@@ -26,10 +26,6 @@
             <li><a href="EditCommittee.aspx">Add/Edit Committees</a></li>
             <li><a href="EditElection.aspx">Add/Edit Election</a></li>
         </ul>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
     </form>
 </body>
 </html>
