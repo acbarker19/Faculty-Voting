@@ -19,6 +19,7 @@
         <asp:Label ID="lblInfo" runat="server"></asp:Label>
         <br />
         <br />
+        <asp:Label ID="Label1" runat="server"></asp:Label>
         <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
     </form>
 </body>
