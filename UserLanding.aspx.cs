@@ -9,9 +9,8 @@ public partial class UserLanding : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Response.Write("AccountType is " + Session["AccountType"] + ".");
-
-        if (Session["AccountType"].Equals("admin"))
+        //check for permission to view the page:
+        if (!Session["AccountType"].Equals("user"))
         {
             Response.Redirect("Error.aspx");
         }

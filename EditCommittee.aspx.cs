@@ -13,9 +13,8 @@ public partial class EditCommittee : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Response.Write("AccountType is " + Session["AccountType"] + ".");
-
-        if (Session["AccountType"].Equals("user"))
+        //check for permission to view the page:
+        if (!Session["AccountType"].Equals("admin"))
         {
             Response.Redirect("Error.aspx");
         }
