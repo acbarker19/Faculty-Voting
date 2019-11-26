@@ -1,13 +1,4 @@
-﻿<!--
-    11-12-19 - Faith started working on the design view.
-    11-12-19 - Amanda edited design.
-    11-14-19 - Faith started working on btnAddElection.
-    11-14-19 - Amanda treoubleshooted btnAddElection issues.
-    11-15-19 - Faith continued working on btnAddElection.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditElection.aspx.cs" Inherits="EditElection" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditElection.aspx.cs" Inherits="EditElection" %>
 
 <!DOCTYPE html>
 
@@ -17,19 +8,27 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>Add/Edit Elections</h2>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Edit/Add Elections</h2></td>
+                <td style="width:100%;white-space: nowrap;">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+        </table>
         <hr />
         <asp:GridView ID="gvElections" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ElectionID" DataSourceID="sdsElections">
             <Columns>
                 <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                 <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
                 <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
                 <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" InsertVisible="False" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
             </Columns>
             </asp:GridView>
@@ -54,6 +53,10 @@
         <br />
         <table>
             <tr>
+                <td>Please type your dates in this format: </td>
+                <td>YYYY-MM-DD</td>
+            </tr>
+            <tr>
                 <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date:"></asp:Label></td>
                 <td><asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox></td>
             </tr>
@@ -68,9 +71,6 @@
                 <td colspan="2"><asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="True" ForeColor="#990099"></asp:Label></td>
             </tr>
         </table>
-        <p>
-            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        </p>
     </form>
 </body>
 </html>

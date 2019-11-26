@@ -14,6 +14,10 @@ public partial class VoteOnElection : System.Web.UI.Page
             ddlPickElection.DataSource = sdsPickElection; // sdsElectionFaculty;
             ddlPickElection.DataBind();
             ddlPickElection.Items.Insert(0, new ListItem("Select an Election", "%"));
+            if (ddlPickElection.Items.Count <= 1)
+            {
+                lblStatus.Text = "There are no current elections occuring. Please check again later.";
+            }
         }
         else
         {
@@ -31,6 +35,20 @@ public partial class VoteOnElection : System.Web.UI.Page
     }
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
-
+        Session.Abandon();
+        Response.Redirect("Default.aspx");
     }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        if (Session["AccountType"].Equals("admin"))
+        {
+            Response.Redirect("AdminLanding.aspx");
+        }
+        else if (Session["AccountType"].Equals("user"))
+        {
+            Response.Redirect("UserLanding.aspx");
+        }
+    }
+
 }

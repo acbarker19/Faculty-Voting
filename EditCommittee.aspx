@@ -1,11 +1,4 @@
-﻿<!--
-    11-12-19 - Brody started working on the design view.
-    11-12-19 - Amanda edited design.
-    11-14-19 - Amanda worked on button functionality.
-    11-17-19 - Amanda edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditCommittee.aspx.cs" Inherits="EditCommittee" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditCommittee.aspx.cs" Inherits="EditCommittee" %>
 
 <!DOCTYPE html>
 
@@ -15,26 +8,33 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h2>Add/Edit Committees</h2>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Edit/Add Committees</h2></td>
+                <td style="width:100%;white-space: nowrap;">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+            </table>
             <hr />
                 <asp:GridView ID="gvCommittees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CommitteeID" DataSourceID="sdsCommittees">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" InsertVisible="False" ReadOnly="True" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="CommitteeSize" HeaderText="CommitteeSize" SortExpression="CommitteeSize" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="TermLength" HeaderText="TermLength" SortExpression="TermLength" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                        <HeaderStyle ForeColor="#990099"></HeaderStyle>
                         </asp:BoundField>
                     </Columns>
             </asp:GridView>
@@ -88,11 +88,7 @@
                     <tr>
                         <td colspan="2"><asp:Label ID="lblCommitStatus" runat="server" ForeColor="#990099" EnableViewState="false"></asp:Label></td>
                     </tr>
-            </table>
-        </div>
-        <p>
-            <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-        </p>
+                </table>
     </form>
 </body>
 </html>

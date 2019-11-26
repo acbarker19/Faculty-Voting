@@ -1,13 +1,4 @@
-﻿<!--
-    11-12-19 - Jacob created, set up gv and sds, added textboxes/labels for adding.
-    11-12-19 - Amanda edited design.
-    11-14-19 - Amanda worked on btn functionality.
-    11-15-19 - Jacob attempted to fix checkboxes - failed.
-    11-17-19 - Amanda worked on functionality and edited design to match other pages.
-    11-19-19 - Amanda added functionality for the Active variable in People table.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
 
 <!DOCTYPE html>
 
@@ -17,39 +8,47 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <h2>Edit/Add Users</h2>
+       <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Edit/Add Users</h2></td>
+                <td style="width:100%;white-space: nowrap;">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+        </table>
             <hr />
             <asp:GridView ID="gvUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="sdsUsers" CellPadding="1">
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" ControlStyle-BorderStyle="None" HeaderStyle-ForeColor="#990099" >
-<ControlStyle BorderStyle="None"></ControlStyle>
+                    <ControlStyle BorderStyle="None"></ControlStyle>
 
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="AccountType" HeaderText="AccountType" SortExpression="AccountType" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="CanVote" HeaderText="CanVote" SortExpression="CanVote" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Active" HeaderText="Active" SortExpression="Active" HeaderStyle-ForeColor="#990099" >
-<HeaderStyle ForeColor="#990099"></HeaderStyle>
+                <HeaderStyle ForeColor="#990099"></HeaderStyle>
                     </asp:BoundField>
                 </Columns>
             </asp:GridView>
@@ -141,11 +140,6 @@
                     <td colspan="2"><asp:Label ID="lblUserStatus" runat="server" ForeColor="#990099"></asp:Label></td>
                 </tr>
             </table>
-
-            <p>
-                <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
-            </p>
-
     </form>
 </body>
 </html>

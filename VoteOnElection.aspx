@@ -1,11 +1,4 @@
-﻿<!--
-    11-12-19 - Alec created page.
-    11-12-19 - Amanda edited design.
-    11-17-19 - Faith worked on the gridview, ddl, general layout.
-    11-17-19 - Amanda helped with functionality and edited design to match other pages.
--->
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VoteOnElection.aspx.cs" Inherits="VoteOnElection" Debug="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VoteOnElection.aspx.cs" Inherits="VoteOnElection" Debug="true" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +8,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>Vote On Election</h2>
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:100%"><h2 style="text-align:left">Vote On Elections</h2></td>
+                <td style="width:100%;white-space: nowrap;">
+                    <asp:Button ID="btnHome" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Home" OnClick="btnHome_Click"/>
+                    <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
+                </td>
+            </tr>
+        </table>
         <hr />
         <asp:Label ID="lblElectionPicker" runat="server" Text="Select a election to vote on by ID: "></asp:Label>
         <asp:DropDownList ID="ddlPickElection" runat="server" DataTextField="ElectionID" DataValueField="ElectionID" AutoPostBack="True" Height="16px"></asp:DropDownList>
@@ -35,9 +36,6 @@
         </asp:SqlDataSource>
         <br />
         <asp:Label ID="lblStatus" runat="server" Text="" EnableViewState ="False" ForeColor="#990099" Font-Bold="True"></asp:Label>
-        <br />
-        <br />
-        <asp:Button ID="btnLogOut" runat="server" BackColor="#990099" BorderStyle="Solid" Font-Bold="True" ForeColor="White" Text="Log Out" OnClick="btnLogOut_Click"/>
     </form>
 </body>
 </html>

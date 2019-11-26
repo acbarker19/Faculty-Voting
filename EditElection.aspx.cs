@@ -16,10 +16,25 @@ public partial class EditElection : System.Web.UI.Page
             Response.Redirect("Error.aspx");
         }
     }
+
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
-
+        Session.Abandon();
+        Response.Redirect("Default.aspx");
     }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        if (Session["AccountType"].Equals("admin"))
+        {
+            Response.Redirect("AdminLanding.aspx");
+        }
+        else if (Session["AccountType"].Equals("user"))
+        {
+            Response.Redirect("UserLanding.aspx");
+        }
+    }
+
     protected void btnAddElection_Click(object sender, EventArgs e)
     {
         string StartDate = txtStartDate.Text;
