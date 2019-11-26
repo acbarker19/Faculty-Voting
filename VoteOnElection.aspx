@@ -26,10 +26,13 @@
             <Columns>
                 <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" />
                 <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" HeaderStyle-ForeColor="#990099" />
+                <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" HeaderStyle-ForeColor="#990099" />
+                <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" HeaderStyle-ForeColor="#990099" />
                 <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" />
+                <asp:BoundField DataField="Name" HeaderText="Committee Name" SortExpression="Name" HeaderStyle-ForeColor="#990099" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="sdsElectionFaculty" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT FacultyRunning.ElectionID, FacultyRunning.CommitteeID, Committee.Name, People.FirstName, People.LastName FROM FacultyRunning INNER JOIN Committee ON FacultyRunning.CommitteeID = Committee.CommitteeID INNER JOIN People ON FacultyRunning.Username = People.Username WHERE (FacultyRunning.ElectionID = @ElectionID) ORDER BY FacultyRunning.ElectionID, FacultyRunning.Username">
+        <asp:SqlDataSource ID="sdsElectionFaculty" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT FacultyRunning.ElectionID, FacultyRunning.CommitteeID, Committee.Name, People.FirstName, People.LastName, FacultyRunning.Username FROM FacultyRunning INNER JOIN Committee ON FacultyRunning.CommitteeID = Committee.CommitteeID INNER JOIN People ON FacultyRunning.Username = People.Username WHERE (FacultyRunning.ElectionID = @ElectionID) ORDER BY FacultyRunning.ElectionID, FacultyRunning.Username">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlPickElection" DefaultValue="%" Name="ElectionID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
