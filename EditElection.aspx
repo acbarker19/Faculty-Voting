@@ -21,10 +21,10 @@
         <asp:GridView ID="gvElections" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ElectionID" DataSourceID="sdsElections">
             <Columns>
                 <asp:CommandField ShowEditButton="True" ButtonType="Button" />
-                <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" HeaderStyle-ForeColor="#990099" >
+                <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" HeaderStyle-ForeColor="#990099" DataFormatString="{0:yyyy-MM-dd}" >
                 <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
-                <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" HeaderStyle-ForeColor="#990099" >
+                <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" HeaderStyle-ForeColor="#990099" DataFormatString="{0:yyyy-MM-dd}" >
                 <HeaderStyle ForeColor="#990099"></HeaderStyle>
                 </asp:BoundField>
                 <asp:BoundField DataField="ElectionID" HeaderText="ElectionID" InsertVisible="False" ReadOnly="True" SortExpression="ElectionID" HeaderStyle-ForeColor="#990099" >
