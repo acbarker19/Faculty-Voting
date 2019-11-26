@@ -103,15 +103,64 @@ public partial class LatestElectionResults : System.Web.UI.Page
                     voteList.Add(Tuple.Create(name, Convert.ToInt32(dsCommittee.Tables[0].Rows[row]["NumberOfVotes"])));
                 }
 
-                voteList = voteList.OrderBy(i => i.Item2).ToList();
+                int neededVotes;
 
-                lblInfo.Text += "<tr><td colspan=\"2\"><hr></td></tr><tr><td>Total Number of Votes</td><td>" +
-                    totalVotes + "</td></tr><tr><td colspan=\"2\"><hr></td></tr>";
-
-                for (int position = 0; position < numPositionsAvailable; position++)
+                if (totalVotes % 2 == 0)
                 {
-                    lblInfo.Text += "<tr><td colspan=\"2\">" + voteList[position].Item1 + " was elected to " +
+                    neededVotes = totalVotes / 2;
+                }
+                else
+                {
+                    neededVotes = totalVotes / 2 + 1;
+                }
+
+                lblInfo.Text += "<tr><td colspan=\"2\"><hr></td></tr><tr><td>Total Number of Votes</td>" +
+                    "<td>" + totalVotes + "</td></tr><tr><td>Number of Votes Needed</td>" +
+                    "<td>" + neededVotes + "</td></tr>" +
+                    "<tr><td colspan=\"2\"><hr></td></tr>";
+
+                //Orders list by number of votes from most to least
+                voteList = voteList.OrderBy(i => i.Item2).ToList();
+                voteList.Reverse();
+
+                int positionsFilled = 0;
+                List<Tuple<String, int>> notElectedList = new List<Tuple<String, int>>();
+
+                for (int position = 0; position < voteList.Count; position++)
+                {
+                    if (voteList[position].Item2 >= neededVotes)
+                    /*    && !notElectedList.Contains(voteList[position])
+                        && position < voteList.Count
+                        && voteList[position].Item2 != voteList[position + 1].Item2
+                        && position > 0
+                        && voteList[position].Item2 == voteList[position + 1].Item2) */
+                    {
+                        positionsFilled++;
+
+                        lblInfo.Text += "<tr><td colspan=\"2\">" + voteList[position].Item1 + " was elected to " +
                         dsCommittee.Tables[0].Rows[0]["Name"] + "</td></tr>";
+                    }
+                /*    else if(position != voteList.Count - 1
+                        && voteList[position].Item2 == voteList[position + 1].Item2)
+                    {
+                        notElectedList.Add(voteList[position]);
+                        notElectedList.Add(voteList[position + 1]);
+                    }
+                    else
+                    {
+                        notElectedList.Add(voteList[position]);
+                    }*/
+                }
+                
+                if(positionsFilled < numPositionsAvailable)
+                {
+                    lblInfo.Text += "<tr><td colspan=\"2\">Not all positions were filled. There will be a runoff " +
+                        "election for the following nominees:</td></tr>";
+
+                    for(int position = 0; position < notElectedList.Count; position++)
+                    {
+                        lblInfo.Text += "<tr><td colspan=\"2\">" + notElectedList[position].Item1 + "</td></tr>";
+                    }
                 }
 
                 lblInfo.Text += "</table><br /><br />";
