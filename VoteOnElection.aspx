@@ -29,7 +29,7 @@
                 <asp:BoundField DataField="CommitteeID" HeaderText="CommitteeID" SortExpression="CommitteeID" HeaderStyle-ForeColor="#990099" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="sdsElectionFaculty" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT [Username], [ElectionID], [CommitteeID] FROM [FacultyRunning] WHERE ([ElectionID] = @ElectionID) ORDER BY [ElectionID], [Username]">
+        <asp:SqlDataSource ID="sdsElectionFaculty" runat="server" ConnectionString="<%$ ConnectionStrings:FacultyVotingConnectionString %>" SelectCommand="SELECT FacultyRunning.ElectionID, FacultyRunning.CommitteeID, Committee.Name, People.FirstName, People.LastName FROM FacultyRunning INNER JOIN Committee ON FacultyRunning.CommitteeID = Committee.CommitteeID INNER JOIN People ON FacultyRunning.Username = People.Username WHERE (FacultyRunning.ElectionID = @ElectionID) ORDER BY FacultyRunning.ElectionID, FacultyRunning.Username">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlPickElection" DefaultValue="%" Name="ElectionID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
