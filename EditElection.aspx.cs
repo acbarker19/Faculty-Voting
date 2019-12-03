@@ -63,4 +63,9 @@ public partial class EditElection : System.Web.UI.Page
         txtStartDate.Text = "";
         txtEndDate.Text = "";
     }
+
+    protected void btnAddNominees_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("EditElectionDetails.aspx");
+    }
 }

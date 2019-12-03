@@ -128,6 +128,8 @@ public partial class LatestElectionResults : System.Web.UI.Page
 
                 for (int position = 0; position < voteList.Count; position++)
                 {
+//Right now only works for if the person gets more votes than needed. Need to check if it exceeds the number of
+//open positions, and if there is a tie. In either case, there may need to be a run-off
                     if (voteList[position].Item2 >= neededVotes)
                     /*    && !notElectedList.Contains(voteList[position])
                         && position < voteList.Count

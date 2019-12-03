@@ -53,10 +53,6 @@
         <br />
         <table>
             <tr>
-                <td>Please type your dates in this format: </td>
-                <td>YYYY-MM-DD</td>
-            </tr>
-            <tr>
                 <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date:"></asp:Label></td>
                 <td><asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox></td>
             </tr>
@@ -64,13 +60,11 @@
                 <td><asp:Label ID="lblEndDate" runat="server" Text="End Date:"></asp:Label></td>
                 <td><asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox></td>
             </tr>
-            <tr>
-                <td colspan="2"><asp:Button ID="btnAddElection" OnClick ="btnAddElection_Click" runat="server" Text="Add Election" ForeColor="White" Font-Bold="True" BorderStyle="Solid" BackColor="#990099" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="True" ForeColor="#990099"></asp:Label></td>
-            </tr>
         </table>
+        <asp:Button ID="btnAddNominees" runat="server" OnClick="btnAddNominees_Click" Text="Add Nominees" ForeColor="White" Font-Bold="True" BorderStyle="Solid" BackColor="#990099" />
+        <asp:Button ID="btnAddElection" OnClick ="btnAddElection_Click" runat="server" Text="Add Election" ForeColor="White" Font-Bold="True" BorderStyle="Solid" BackColor="#990099" /></td>
+        <br />
+        <asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="True" ForeColor="#990099"></asp:Label>
     </form>
 </body>
 </html>
