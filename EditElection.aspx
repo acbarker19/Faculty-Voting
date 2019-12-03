@@ -53,11 +53,11 @@
         <br />
         <table>
             <tr>
-                <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date:"></asp:Label></td>
+                <td><asp:Label ID="lblStartDate" runat="server" Text="Start Date: (YYYY-MM-DD)"></asp:Label></td>
                 <td><asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblEndDate" runat="server" Text="End Date:"></asp:Label></td>
+                <td><asp:Label ID="lblEndDate" runat="server" Text="End Date: (YYYY-MM-DD)"></asp:Label></td>
                 <td><asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox></td>
             </tr>
         </table>
