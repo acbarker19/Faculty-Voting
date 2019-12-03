@@ -18,6 +18,12 @@ public partial class LatestElectionResults : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //check for permission to view the page:
+        if (!(Session["AccountType"].Equals("admin") || Session["AccountType"].Equals("user")))
+        {
+            Response.Redirect("Error.aspx");
+        }
+
         dsGeneral = getGeneralElectionResults();
 
         displayElectionInfo(getNewestCompleteElection());
