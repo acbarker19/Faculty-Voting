@@ -1,0 +1,206 @@
+CREATE TABLE People ( 
+
+Username varchar(30) NOT NULL, 
+
+Password varchar(50) NOT NULL, 
+
+AccountType varchar(15), 
+
+FirstName varchar(50)NOT NULL, 
+
+LastName varchar(50)NOT NULL, 
+
+Department varchar(150), 
+
+Title varchar(150), 
+
+CanVote char NOT NULL, 
+
+PRIMARY KEY (Username) 
+
+); 
+
+CREATE TABLE Committee ( 
+
+CommitteeID int NOT NULL IDENTITY(1,1), 
+
+Name varchar(100) NOT NULL, 
+
+Description varchar(250),  
+
+CommitteeSize int, 
+
+TermLength int, 
+
+PRIMARY KEY (CommitteeID) 
+
+); 
+
+CREATE TABLE FacultyInCommittee ( 
+
+Username varchar(30) NOT NULL, 
+
+CommitteeID int NOT NULL, 
+
+PRIMARY KEY (Username, CommitteeID), 
+
+FOREIGN KEY (Username) REFERENCES People (Username), 
+
+FOREIGN KEY (CommitteeID) REFERENCES Committee (CommitteeID) 
+
+); 
+
+CREATE TABLE Election ( 
+
+StartDate date, 
+
+EndDate date, 
+
+ElectionID int NOT NULL IDENTITY(1,1), 
+
+PRIMARY KEY (ElectionID) 
+
+); 
+
+CREATE TABLE CommitteeInElection ( 
+
+ElectionID int NOT NULL, 
+
+CommitteeID int NOT NULL, 
+
+NumPositionsAvailable int, 
+
+PRIMARY KEY (ElectionID, CommitteeID), 
+
+FOREIGN KEY (ElectionID) REFERENCES Election (ElectionID), 
+
+FOREIGN KEY (CommitteeID) REFERENCES Committee (CommitteeID) 
+
+); 
+
+CREATE TABLE FacultyRunning ( 
+
+Username varchar(30) NOT NULL, 
+
+ElectionID int NOT NULL, 
+
+NumberOfVotes int NOT NULL, 
+
+CommitteeID int NOT NULL, 
+
+PRIMARY KEY (Username, CommitteeID), 
+
+FOREIGN KEY (Username) REFERENCES People (Username), 
+
+FOREIGN KEY (ElectionID) REFERENCES Election (ElectionID), 
+
+FOREIGN KEY (CommitteeID) REFERENCES Committee (CommitteeID) 
+
+); 
+
+CREATE TABLE HasVoted ( 
+
+ElectionID int NOT NULL, 
+
+Username varchar(30) NOT NULL, 
+
+HasVoted char NOT NULL, 
+
+PRIMARY KEY (ElectionID, Username), 
+
+FOREIGN KEY (ElectionID) REFERENCES Election (ElectionID), 
+
+FOREIGN KEY (Username) REFERENCES People (Username) 
+
+);
+
+
+CREATE PROCEDURE getElectionResults 
+
+AS 
+
+BEGIN 
+
+    SELECT People.Username, People.FirstName, People.LastName, People.Department, People.Title, 
+
+        FacultyRunning.NumberOfVotes, Election.ElectionID, Election.StartDate, Election.EndDate, 
+
+        Committee.CommitteeID, Committee.Name, Committee.Description, Committee.TermLength, 
+
+        Committee.CommitteeSize, CommitteeInElection.NumPositionsAvailable 
+
+    FROM People, FacultyRunning, Committee, Election, CommitteeInElection 
+
+    WHERE CommitteeInElection.CommitteeID = Committee.CommitteeID 
+
+        AND CommitteeInElection.ElectionID = Election.ElectionID 
+
+        AND FacultyRunning.CommitteeID = Committee.CommitteeID 
+
+        AND FacultyRunning.ElectionID = Election.ElectionID 
+
+        AND FacultyRunning.Username = People.Username 
+
+END; 
+ 
+CREATE PROCEDURE getSpecificElectionResults @ElectionID int 
+
+AS 
+
+BEGIN 
+
+    SELECT People.Username, People.FirstName, People.LastName, People.Department, People.Title, 
+
+        FacultyRunning.NumberOfVotes, Election.ElectionID, Election.StartDate, Election.EndDate, 
+
+        Committee.CommitteeID, Committee.Name, Committee.Description, Committee.TermLength, 
+
+        Committee.CommitteeSize, CommitteeInElection.NumPositionsAvailable 
+
+    FROM People, FacultyRunning, Committee, Election, CommitteeInElection 
+
+    WHERE CommitteeInElection.CommitteeID = Committee.CommitteeID 
+
+        AND CommitteeInElection.ElectionID = Election.ElectionID 
+
+        AND FacultyRunning.CommitteeID = Committee.CommitteeID 
+
+        AND FacultyRunning.ElectionID = Election.ElectionID 
+
+        AND FacultyRunning.Username = People.Username 
+
+        AND Election.ElectionID = @ElectionID 
+
+END;
+
+CREATE PROCEDURE getSpecificElectionResultsForCommittee @ElectionID int, @CommitteeID int 
+
+AS  
+
+BEGIN  
+
+    SELECT People.Username, People.FirstName, People.LastName, People.Department, People.Title,  
+
+        FacultyRunning.NumberOfVotes, Election.ElectionID, Election.StartDate, Election.EndDate,  
+
+        Committee.CommitteeID, Committee.Name, Committee.Description, Committee.TermLength,  
+
+        Committee.CommitteeSize, CommitteeInElection.NumPositionsAvailable  
+
+    FROM People, FacultyRunning, Committee, Election, CommitteeInElection  
+
+    WHERE CommitteeInElection.CommitteeID = Committee.CommitteeID  
+
+        AND CommitteeInElection.ElectionID = Election.ElectionID  
+
+        AND FacultyRunning.CommitteeID = Committee.CommitteeID  
+
+        AND FacultyRunning.ElectionID = Election.ElectionID  
+
+        AND FacultyRunning.Username = People.Username  
+
+        AND Election.ElectionID = @ElectionID  
+
+        AND Committee.CommitteeID = @CommitteeID 
+
+END; 
